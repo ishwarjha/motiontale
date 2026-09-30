@@ -2,7 +2,7 @@
 
 Motion videos written as code: launch films, explainers, tutorials, product tours, data stories, brand and history stories, highlight reels and social cuts, in twelve styles, for a product, a result, a lesson or an idea.
 
-You describe the video to your coding agent in plain words. Motiontale interviews you once, gathers the real material (your product's screens, your data, your sources), writes the film as a web page, renders it frame by frame with motion blur, puts real recorded sound on the beat, and checks it before you see it. Every number on screen has a source, every screen comes from the real thing, and every frame can be rebuilt from its code.
+You describe the video to your AI agent in plain words. Motiontale asks you a few questions once, gathers the real material (your product's screens, your data, your sources), makes the motion video with real music and sound effects timed to the beat, and checks it before you see it. Every number on screen has a source, every screen comes from the real thing, and you can change any moment later without starting over.
 
 It ships as a plugin for Claude Code and Codex. The skills are plain Markdown and `AGENTS.md` carries the rules, so an agent that reads skills or `AGENTS.md` can follow the same workflow, and the engine is a Python command-line tool you can also run by hand.
 
