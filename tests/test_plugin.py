@@ -74,7 +74,7 @@ for s_ in (ROOT / "skills").glob("*/SKILL.md"):
 
 # files the skills name exist (ENGINE/x -> engine/x; film-relative paths like <slug>/..., vo/, shots/ are skipped)
 FILM = ("<", "{", "vo/", "shots/", "data/", "clips/", "audio/", "frames/", "seams/", "kit/", "refs/", "~")
-checked = 0
+checked = set()
 for s_ in list((ROOT / "skills").rglob("*.md")) + [ROOT / "AGENTS.md", ROOT / "README.md"]:
     for ref in re.findall(r"`([\w./-]+\.(?:md|py|js|json|toml))`", s_.read_text()):
         if ref.startswith(FILM) or "/" not in ref and not (MV / ref).exists() and not (ROOT / ref).exists() \
@@ -85,8 +85,8 @@ for s_ in list((ROOT / "skills").rglob("*.md")) + [ROOT / "AGENTS.md", ROOT / "R
         path = ROOT / "engine" / ref[7:] if ref.startswith("ENGINE/") else None
         cands = [path] if path else [s_.parent / ref, MV / ref, ROOT / ref, ROOT / "engine" / ref]
         assert any(c.exists() for c in cands), f"{s_.relative_to(ROOT)} names missing {ref}"
-        checked += 1
-assert checked > 20, f"only {checked} file references checked: the pattern stopped matching"
+        checked.add(ref)
+assert {"../motion-video/checks.md", "ENGINE/capture.py"} <= checked, f"the pattern stopped matching known references: {sorted(checked)[:10]}"   # T8
 
 # the routing hook is wired and executable
 hooks = json.loads((ROOT / "hooks" / "hooks.json").read_text())
