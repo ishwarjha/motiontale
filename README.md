@@ -1,15 +1,17 @@
 # Motiontale
 
-Product videos made as code, by Claude Code or Codex.
+Motion videos written as code: launch films, explainers, tutorials, product tours, data stories, brand and history stories, highlight reels and social cuts, in twelve styles, for a product, a result, a lesson or an idea.
 
-You describe the film. Motiontale interviews you once, captures your real product screens, writes the film as a web page, renders it frame by frame with motion blur, puts real recorded sound on the beat, and checks the result before you see it. Every number on screen has a source, every product pixel comes from your product, and every frame is reproducible from code.
+You describe the video to your coding agent in plain words. Motiontale interviews you once, gathers the real material (your product's screens, your data, your sources), writes the film as a web page, renders it frame by frame with motion blur, puts real recorded sound on the beat, and checks it before you see it. Every number on screen has a source, every screen comes from the real thing, and every frame can be rebuilt from its code.
 
-It suits anyone who needs launch films, explainers, product tours, social cuts or app previews and would rather edit a line than re-shoot a video.
+It ships as a plugin for Claude Code and Codex. The skills are plain Markdown and `AGENTS.md` carries the rules, so an agent that reads skills or `AGENTS.md` can follow the same workflow, and the engine is a Python command-line tool you can also run by hand.
+
+It suits anyone who would rather edit a line than re-shoot a video: founders, product and marketing teams, educators, analysts, and developers showing their work.
 
 ## What it does
 
 - **Twelve styles, one engine.** Editorial (Swiss style), explainer, product tour, vertical kinetic type, keynote reveal, morph loop, story, teaser, data story (animated infographic), tutorial (screencast), app preview and sizzle reel. Each style has a card with its length, formats, scenes, music and banned moves.
-- **Real product UI.** Captures pages and single elements from your site or app at 2x, with transparent crops for pieces that move on their own. It can use your logged-in Chrome, blocks every write request while it captures, and records where each pixel came from.
+- **Real screens, not drawings.** Captures pages and single elements from a site or app at 2x, with transparent crops for pieces that move on their own. It can use your logged-in Chrome, blocks every write request while it captures, and records where each pixel came from.
 - **Numbers you can defend.** Every number, price or date on screen needs a row in `facts.md` with its source and date, or is shown as demo data labelled "Example". Lint blocks the render on numbers it can read in the code, and a check reads every number the rendered frames actually show.
 - **Real sound, on the beat.** Music and effects are real recordings, measured once. Each effect lands on its event by its measured peak, the music is cut so its drop lands on your payoff, a voice ducks the music, and the master reaches -14 LUFS with a short limiter instead of squashing the mix.
 - **Voice, if you want it.** Record it yourself, or choose an AI voice (Google, Microsoft or ElevenLabs), labelled as AI. Every sentence is transcribed and matched to the script, numbers word for word, before it's placed on the beat grid.
