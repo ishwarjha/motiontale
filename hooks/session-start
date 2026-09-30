@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Route video work to the motion skills, but only inside a motion workspace (a kit/AUDIO.md at or above cwd, or $MOTION_KIT).
+dir="$PWD"
+while [ "$dir" != "/" ] && [ ! -f "$dir/kit/AUDIO.md" ]; do dir="$(dirname "$dir")"; done
+if [ ! -f "$dir/kit/AUDIO.md" ]; then       # or a kit named by MOTION_KIT, as the engine finds it
+  [ -n "$MOTION_KIT" ] && [ -f "$MOTION_KIT/AUDIO.md" ] || exit 0
+  dir="$PWD"
+fi
+msg="Motiontale workspace ($dir). For any video request: motion-brief first (interview, facts.md, shotlist, two approval gates), motion-capture for real UI, then motion-video; long or multi-agent films go to motion-director. Before showing a film: engine/lint.py has no blocking line, film.py check passes, motion-check scores every axis 8+. Real UI only, every on-screen number in facts.md, music and effects never synthesized."
+python3 -c 'import json, sys; print(json.dumps({"hookSpecificOutput": {"hookEventName": "SessionStart", "additionalContext": sys.argv[1]}}))' "$msg"

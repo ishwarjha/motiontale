@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>film</title>
+<style>
+/* Look tokens: replace from the style card. No unlisted colours. */
+@font-face { font-family: Manrope; src: url(fonts/Manrope.ttf); font-weight: 200 800; font-display: block; }   /* OFL, in fonts/ */
+@font-face { font-family: "Instrument Serif"; src: url(fonts/InstrumentSerif-Italic.ttf); font-style: italic; font-display: block; }
+:root { --canvas: #F7F8F6; --ink: #15201B; --muted: #5B6660; --accent: #0B8F63; --line: #E6E9E7; }
+* { box-sizing: border-box; }
+html, body { margin: 0; width: 100vw; height: 100vh; overflow: hidden; background: var(--canvas); }
+body { font-family: Manrope, system-ui, sans-serif; color: var(--ink); -webkit-font-smoothing: antialiased; }
+#stage { position: absolute; inset: 0; overflow: hidden; }
+#cam { position: absolute; left: 0; top: 0; width: 100vw; height: 100vh; transform-origin: 0 0; }
+.head { position: absolute; text-align: center; font-weight: 800; letter-spacing: -0.045em; line-height: 1.15; }
+.m { display: inline-block; overflow: hidden; vertical-align: bottom; padding: 0 .04em .12em; margin-bottom: -.12em; }
+.m > span { display: inline-block; }   /* no will-change: the camera scales these */
+.acc { font-family: "Instrument Serif", Georgia, serif; font-style: italic; font-weight: 400; color: var(--accent); letter-spacing: -0.01em; }
+.dot { position: absolute; border-radius: 999px; background: var(--ink); overflow: hidden; }
+.dot > i { position: absolute; inset: 0; background: var(--accent); }
+.dot > b { position: absolute; left: 0; right: 0; top: 0; bottom: 0; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 40px; font-weight: 700; white-space: nowrap; }
+</style>
+</head>
+<body>
+<div id="stage"><div id="cam"></div></div>
+<script src="timeline.js"></script>
+<script src="motion.js"></script>
+<script>
+// Template film: a static pain line (frame one = thumbnail), a second line rising word by word, a dot that
+// springs up, floods green and stretches into a pill on the payoff (the music drop), then folds away so
+// the last frame equals the first. Replace the content; keep the pattern.
+const cam = document.getElementById('cam');
+// Layout is a function of the format (FMT, pick): reframe per format, never crop the 16:9 frame.
+const { W, H } = FMT, CX = W / 2, CY = H / 2, G = pick(160, 90, 72);      // centre, side gutter
+const l1 = words(cam, 'Every frame is a function of time.', 'head');
+const l2 = words(cam, 'Real UI. Real *sound.*', 'head');
+const fs = pick(96, 84, 88);
+place(l1, G, CY - pick(200, 330, 420), W - 2 * G); place(l2, G, CY - pick(70, 10, 10), W - 2 * G);
+l1.style.fontSize = l2.style.fontSize = px(fs);
+const PY = CY + pick(180, 240, 330);                                         // the pill's centre line
+const dot = h('div', 'dot', cam), fill = h('i', '', dot), label = h('b', '', dot, 'Studio ready');
+
+function draw(b) {
+  cam.style.transform = camera(b, [[0, {x: CX, y: CY, z: 1}], [cue('s01.dot'), {x: CX, y: CY, z: 1}],
+    [cue('payoff'), {x: CX, y: CY + 60, z: 1.12}], [cue('s01.out'), {x: CX, y: CY + 60, z: 1.12}], [cue('s01.home'), {x: CX, y: CY, z: 1}]]);
+  rise(l1, b, 0, 1, true);
+  const up = sp(b, cue('s01.line2')), down = sp(b, cue('s01.out'), 1, 'snappy');
+  l2.ws.forEach((w, i) => { const k = sp(b, cue('s01.line2') + i * 0.5) - down; w.style.transform = `translateY(${(1 - clamp(k, -1, 1.1)) * 115}%)`; });
+  // one element the whole time: size and radius are sums of springs, one per change
+  const w = track(b, [[0, 0], [cue('s01.dot'), 64], [cue('payoff'), Math.min(520, W - 2 * G)], [cue('s01.fold'), 64], [cue('s01.out'), 0]]);
+  const hh = track(b, [[0, 0], [cue('s01.dot'), 64], [cue('payoff'), 112], [cue('s01.fold'), 64], [cue('s01.out'), 0]]);
+  place(dot, CX - w / 2, PY - hh / 2, Math.max(0, w), Math.max(0, hh));
+  dot.style.opacity = w > 0.5 ? 1 : 0;
+  flood(fill, sp(b, cue('s01.pill'), 1, 'snappy'), 32, 32, 600);
+  // text inside the morphing pill rises out of its edge (the pill is the mask), never fades
+  label.style.transform = `translateY(${(1 - swapIn(b, cue('payoff'), cue('s01.fold'))) * 110}%)`;
+}
+studio(draw, '.dot, .head .m > span');
+</script>
+</body>
+</html>

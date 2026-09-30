@@ -1,0 +1,14 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "motiontale",
+  "description": "Code-rendered motion videos with real UI, real sound and automatic checks.",
+  "owner": { "name": "motiontale" },
+  "plugins": [
+    {
+      "name": "motiontale",
+      "description": "Motion video skills (brief, capture, make, direct, check, review, audit, extend) and agents (scene builder, critic).",
+      "source": "./",
+      "category": "productivity"
+    }
+  ]
+}

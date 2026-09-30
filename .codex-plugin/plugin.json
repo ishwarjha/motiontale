@@ -1,0 +1,26 @@
+{
+  "name": "motiontale",
+  "version": "0.1.0",
+  "description": "Code-rendered motion videos in any style: launch films, narrated explainers, product tours, social cuts, morph loops, story films. Real UI, real sound, automatic checks.",
+  "keywords": [
+    "motion-design",
+    "video",
+    "launch-video",
+    "explainer"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Motiontale",
+    "shortDescription": "Code-rendered motion videos",
+    "longDescription": "Make launch films, explainers, product tours and social cuts as code: real product UI, real measured sound, a beat timeline and automatic checks.",
+    "category": "Productivity",
+    "capabilities": [
+      "Instructions"
+    ],
+    "defaultPrompt": [
+      "Make a 60-second launch video for my product.",
+      "Review this motion video like a harsh motion director.",
+      "Add a new video style from these references."
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+# Python 3.11+. Also needs ffmpeg on PATH. After install: python -m playwright install chromium
+# Pinned to the versions the tests pass on; raise them together and re-run both test files.
+numpy==2.5.3
+pillow==12.3.0
+playwright==1.63.0
+faster-whisper==1.2.1   # voice.py: transcript check of each take
+num2words==0.5.14       # voice.py: "79%" matches "seventy-nine percent"
