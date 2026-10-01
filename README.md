@@ -72,7 +72,7 @@ Or run it yourself, from that folder:
 
 ```bash
 mkdir -p ~/videos && cd ~/videos
-bash "$(ls -d ~/.claude/plugins/cache/motiontale/motiontale/*/ | tail -1)script/setup"
+bash "$(ls -d ~/.claude/plugins/cache/motiontale/motiontale/*/ | sort -V | tail -1)script/setup"
 ```
 
 (If you cloned the repository instead, that's `bash <path to motiontale>/script/setup`.)
