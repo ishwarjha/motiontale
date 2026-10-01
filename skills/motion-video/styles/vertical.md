@@ -19,7 +19,7 @@ Manrope 800 (default), with headlines at 96 px or larger (default) on a 1080-wid
 Crop to one component and shoot it again at the component's size. Never shrink a full page to fit. It uses the editorial card, filling 80% or more of the width (default).
 
 ## Motion grammar
-- Faster than editorial: a change on every beat, and holds of 1 beat at most.
+- Faster than editorial: a change on every beat, and holds of 1 beat at most. A finished line still stays up until it reads without pausing (about 1 beat per 3 words, at least 2), with something small moving on it so the hold isn't dead.
 - Words rise out of the mask line, one per beat. The pain line in the hook is already risen at frame one, because frame one is the thumbnail.
 - The last beat returns every element to its frame-one position, so the loop is seamless.
 

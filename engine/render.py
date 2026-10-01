@@ -13,10 +13,21 @@ FLAGS = ["--force-color-profile=srgb", "--disable-lcd-text", "--font-render-hint
          "--run-all-compositor-stages-before-draw"]
 
 
+def launch(pw, args):
+    """Start headless Chromium, or stop with what to do: the usual causes are a missing browser or an agent sandbox."""
+    try:
+        return pw.chromium.launch(args=args)
+    except Exception as e:
+        pw.stop()
+        raise SystemExit(f"Chromium could not start: {str(e).strip().splitlines()[0]}\n"
+                         "  Missing browser: .venv/bin/python -m playwright install chromium\n"
+                         "  Inside an agent sandbox (Codex's default blocks it): run this command outside the sandbox.")
+
+
 class Renderer:
     def __init__(self, html):
         self.pw = sync_playwright().start()
-        self.browser = self.pw.chromium.launch(args=FLAGS)
+        self.browser = launch(self.pw, FLAGS)
         self.page = self.browser.new_page(viewport={"width": W, "height": H}, device_scale_factor=1)
         self.page.goto(pathlib.Path(html).resolve().as_uri())
         self.page.evaluate("document.fonts.ready")

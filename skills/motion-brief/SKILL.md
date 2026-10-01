@@ -28,7 +28,7 @@ Default anything missing from the style card and say which. Never default the pa
 Show BRIEF.md and shotlist.md. Wait for OK. Notes are "problem + result wanted".
 
 ## 4. Gate 2: stills
-After motion-capture: `PY ENGINE/film.py frames <slug> <beat> ...` for 4-6 key beats (hook, first feature, payoff, end card). Show them. Wait for OK before any full render.
+After motion-capture (or straight after the shotlist when no product is on screen): `PY ENGINE/film.py frames <slug> <beat> ...` for 4-6 key beats (hook, first feature, payoff, end card). Show them. Wait for OK before any full render.
 
 ## Done when
 Both gates are approved and `facts.md` covers every number in the shotlist. Hand over to motion-video (single film) or motion-director (long or multi-agent).

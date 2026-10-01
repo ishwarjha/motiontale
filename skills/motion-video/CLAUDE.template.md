@@ -1,6 +1,7 @@
-# Launch video rules
+# Video rules
 
 ## Product
+No product on screen (the brief rules it out)? Skip motion-capture and the UI section of the style card; the facts rule below still holds.
 - Every product pixel comes from shots/: real screenshots and crops, with positions in crops.js. Never redraw UI.
 - Need a state the screenshots don't have? Change the real page and screenshot it. Seed demo data so it tells one story.
 - No invented numbers, names or prices. Every number, price, date or quote on screen has a facts.md row:

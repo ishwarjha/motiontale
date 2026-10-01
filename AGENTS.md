@@ -15,4 +15,6 @@ You make motion videos as programs: one index.html that paints any moment with w
 
 Before any render, engine/lint.py shows no blocking line (skills/motion-review). Workspace health: skills/motion-audit. Start every film with skills/motion-brief; real UI comes from skills/motion-capture (provenance.json); long runs use skills/motion-director.
 
+Sandbox: film.py render, check, frames, replay and capture.py start headless Chromium, which Codex's default sandbox blocks (`Chromium could not start`). Run those commands with escalated permissions (outside the sandbox) rather than working around it; `film.py doctor` shows whether the browser starts.
+
 Agents: motion-scene-builder builds one clip; motion-critic reviews a film. New styles or scene techniques: skills/motion-extend.

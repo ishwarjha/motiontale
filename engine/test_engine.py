@@ -329,17 +329,19 @@ def main():
         assert not pops(v, planned={20})[1]
         # the recipe rebuilds every frame, and the delivery bundle exports
         subprocess.run([PY, FILM, "check", str(d), "contact", "phone", "first", "poster"], check=True, capture_output=True)
+        (d / "review_log.md").write_text("round 1\n")                    # a critique logged before this render
         run("render", "--workers", "4")                                     # check outputs existed when the recipe was written
         outputs = [k for k in json.loads((d / "recipe.json").read_text())["inputs"] if re.match(r"(contact|first|poster|phone_\d+)\.png$", k)]
         assert not outputs, f"check outputs recorded as inputs: {outputs}"
         video = (d / "build" / "video.mp4").read_bytes()
         rec = json.loads((d / "recipe.json").read_text())
         rec["engine"]["motion.js"] = "0" * 16; (d / "recipe.json").write_text(json.dumps(rec))
+        (d / "review_log.md").write_text("round 2\n")                    # and changed after it: notes paint no frame
         r = subprocess.run([PY, FILM, "replay", str(d)], capture_output=True, text=True)
         assert r.returncode == 0 and "IDENTICAL" in r.stdout, r.stdout[-300:] + r.stderr[-300:]
         # replay names what changed outside the film too, and leaves the render mux reuses alone (I15)
         assert "motion.js" in r.stdout and (d / "build" / "video.mp4").read_bytes() == video, r.stdout[-300:]
-        assert not any(x in r.stdout for x in ("contact.png", "poster.png", "phone_", "first.png")), r.stdout[-300:]   # outputs aren't inputs
+        assert not any(x in r.stdout for x in ("contact.png", "poster.png", "phone_", "first.png", ".md")), r.stdout[-300:]   # outputs and notes aren't inputs
         subprocess.run([PY, FILM, "export", str(d)], check=True, capture_output=True)
         assert (d / "poster.png").exists() and (d / "preview.gif").exists()
         # determinism: the same beat rendered in two fresh browsers is byte-identical

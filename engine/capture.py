@@ -28,6 +28,7 @@ from urllib.parse import urljoin, urlsplit, urlunsplit
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 from lint import NUM  # noqa: E402
+from render import launch  # noqa: E402
 
 
 def capture(d, cfg):
@@ -70,7 +71,7 @@ def capture(d, cfg):
             page = ctx.new_page()
             page.set_viewport_size({"width": vw, "height": vh})
         else:
-            br = pw.chromium.launch(args=["--force-color-profile=srgb", "--font-render-hinting=none"])
+            br = launch(pw, ["--force-color-profile=srgb", "--font-render-hinting=none"])
             ctx = br.new_context(viewport={"width": vw, "height": vh}, device_scale_factor=scale, service_workers="block",
                                  **({"storage_state": str(state)} if state else {}))   # a service worker would bypass the route
             page = ctx.new_page()

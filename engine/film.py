@@ -302,6 +302,12 @@ def cmd_doctor(a):
           ", ".join(f"{k} {'set' if os.environ.get(k) else 'missing'}" for k in need) or "unknown provider")
     k = kit_dir(pathlib.Path(a.dir or "."))
     print("kit    ", k or "missing (engine/kit.py builds it)")
+    from playwright.sync_api import sync_playwright
+    from render import launch
+    pw = sync_playwright().start()
+    br = launch(pw, [])
+    print("browser", "Chromium", br.version, "starts")
+    br.close(); pw.stop()
 
 
 # ---------------------------------------------------------------- export
@@ -357,7 +363,8 @@ def cmd_export(a):
              "fps=15,scale=480:-2:flags=lanczos,split[a][b];[a]palettegen=stats_mode=diff[p];[b][p]paletteuse=dither=bayer",
              str(d / "preview.gif")])
         out += ["poster.png", "preview.gif"]
-    print("exported:", ", ".join(out) or "nothing (no lines, titled shots or film.mp4)")
+    print("exported:", ", ".join(out) or "nothing (no lines, titled shots or film.mp4)",
+          "" if film.exists() else f"(no {film.name} yet: render it for the poster and preview)")
 
 
 # ---------------------------------------------------------------- recipe
@@ -376,7 +383,7 @@ def frames_hash(video):
 def write_recipe(d, tl, args, video):
     """recipe.json: everything that decides the film, hashed. Same recipe + same engine -> same frames (film.py replay)."""
     inputs = {str(p.relative_to(d)): sha(p) for p in sorted(d.rglob("*")) if p.is_file() and p.suffix in
-              (".html", ".js", ".md", ".json", ".png", ".jpg", ".jpeg", ".webp", ".svg", ".ttf", ".otf", ".woff2", ".wav")
+              (".html", ".js", ".json", ".png", ".jpg", ".jpeg", ".webp", ".svg", ".ttf", ".otf", ".woff2", ".wav")
               and not any(x in p.parts for x in ("build", "frames", "audio", "seams")) and p.name not in ("recipe.json", "checks.json")
               and not re.fullmatch(r"(contact|first|poster|phone_\d+|strip_[\d.]+)\.png", p.name)}   # check outputs aren't inputs
     kitd = kit(d)
@@ -393,6 +400,8 @@ def write_recipe(d, tl, args, video):
 def cmd_replay(a):
     """Re-render from the recipe's settings and compare every frame with the recorded film."""
     d = pathlib.Path(a.dir).resolve()
+    if not (d / "recipe.json").exists():
+        raise SystemExit(f"no recipe.json in {d.name}: replay rebuilds a full render, so run film.py render first")
     rec = json.loads((d / "recipe.json").read_text())
     os.environ["SIZE"] = rec["size"]
     changed = [k for k, v in rec["inputs"].items() if not (d / k).exists() or sha(d / k) != v]

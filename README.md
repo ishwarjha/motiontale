@@ -83,7 +83,7 @@ bash "$(ls -d ~/.claude/plugins/cache/motiontale/motiontale/*/ | sort -V | tail 
 
 Plugins can't run their own setup when you install them, and this one needs a Python environment, a browser and a sound library in the folder you choose, so setup is a separate, one-time step.
 
-**Codex:** `codex plugin marketplace add <path to this folder or its git URL>`, then `codex plugin add motiontale@motiontale`, then copy `.codex/agents/*.toml` into `~/.codex/agents/` for the scene-builder and critic agents, and `AGENTS.md` into your workspace so Codex reads the rules. The session hook that points video requests at the skills is Claude Code only.
+**Codex:** `codex plugin marketplace add <path to this folder or its git URL>`, then `codex plugin add motiontale@motiontale`, then copy `.codex/agents/*.toml` into `~/.codex/agents/` for the scene-builder and critic agents, and `AGENTS.md` into your workspace so Codex reads the rules. The session hook that points video requests at the skills is Claude Code only. Run `script/setup` yourself in a terminal (it downloads into caches outside the workspace, which Codex's sandbox doesn't allow). Rendering starts a headless browser, which Codex's default sandbox also blocks, so approve Codex's requests to run `film.py` outside the sandbox when it asks.
 
 **Other agents:** the skills are plain Markdown and `AGENTS.md` carries the rules, so an agent that reads either can follow the same workflow. Claude Code and Codex are the two it has been tested with.
 
