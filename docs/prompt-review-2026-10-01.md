@@ -20,3 +20,21 @@ Question: do the twelve style prompts give the agent enough to use the skills to
 | K10, K15 | Captions, loop | Author's answer chosen (0.82, 0.90): no change |
 
 Re-run of step 1 on the updated prompts: references covered in 11 of 12 (was 0), brand in 12 (was 0), gaps per prompt down in every style (teaser 12 to 5, vertical 12 to 7). The overall ruling stays "lacking" (0.52 to 0.80) because step 1 sees no round-2 answers and re-flags the points Jev accepted there.
+
+## Sync rounds (same day)
+
+Step 1 never saw what the skills do on their own, so it kept asking prompts for defaults. Jev was given that list once, quoted from the skills (gates, asserts, export, routing, listening, effects per event, capture handling, facts blocking), and the remaining gaps were probed one capability at a time. Only inputs that only the user can give were added; no rule or guard was added to the skills.
+
+| Cap | Jev's remaining ask | Change |
+|---|---|---|
+| K1 | Nine prompts lacked audience and the one-line message | "Viewers: <audience>, on <where it will be posted>; afterwards they should believe <message> and <action>" in all twelve; motion-brief question 1 asks what they should believe |
+| K9 | The voice's character; a recording brief | "(<accent, pace, energy>)" on the AI-voice option; "one take per scene" on the recording option |
+| K14 | Poster moment; platform specs | "a poster at <the moment to show, or the payoff>"; where it is posted now in every prompt |
+| K20 | Tone | "tone <calm, playful, urgent, premium, …>" on the existing Brand line; motion-brief question 9 |
+| K11 | Which moment the payoff lands on | The payoff named and put on the drop in morph-loop, story and app-preview |
+
+Final rulings: brand (K5), hook (K11), look (K20) and deliverables (K14) agreed; brief (K1) agreed once asked directly ("nothing missing", 0.66). Overall: "mostly" (0.64), up from "lacking" in every earlier round.
+
+Held without change, with reasons:
+- K3: Jev asks for the exact selectors to crop (0.52). motion-capture finds selectors itself; asking users for CSS selectors burdens non-technical users and adds nothing the agent can't do. Jev's earlier probe put "nothing missing" first (0.40).
+- K9: Jev asks for the script text (0.42) or who records (0.35). The agent writes script.md from the brief for the user to read; asking the user to write it would constrain the agent's writing. Left for the owner to decide.

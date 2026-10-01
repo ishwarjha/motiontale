@@ -9,7 +9,7 @@ This skill writes the brief and stops for approval twice: after the shotlist, an
 
 ## 1. Interview (one message, then wait)
 Ask only what the request doesn't already answer:
-1. What is it, in five lines? Who watches, and what should they do after?
+1. What is it, in five lines? Who watches, and what should they believe and do after?
 2. The pain, in the words a customer would use.
 3. Three features, in order, and the payoff: one real result or number. Is everything on those screens public yet (unreleased features, customer names)?
 4. Call to action and link.
@@ -17,7 +17,7 @@ Ask only what the request doesn't already answer:
 6. References: 1-3 videos, a frame, or a folder of your own images. Name the style in words as well as linking it.
 7. Voice: none, your recording, or TTS labelled as AI.
 8. Facts: every number or claim you want on screen, with where it comes from.
-9. Brand: the logo file, typefaces and colours. Never invent a logo; with none supplied, the product name is set in type.
+9. Brand: the logo file, typefaces, colours and tone. Never invent a logo; with none supplied, the product name is set in type.
 Default anything missing from the style card and say which. Never default the payoff or the call to action.
 
 ## 2. Write, in `<slug>/`
