@@ -562,4 +562,6 @@ python3 tests/test_plugin.py                 # the plugin's contract, a few seco
 | `pyproject.toml`, `uv.lock` | The engine's dependencies, every version locked; `engine/requirements.txt` is the same list for pip |
 | `docs/` | The plan, the issue log and the latest review |
 
+**Shipping a change.** Installs are pinned to the plugin's version, so raise it (in `.claude-plugin/plugin.json`, `.codex-plugin/plugin.json` and `pyproject.toml`, kept equal by the tests) with every change users should get; otherwise `claude plugin update` reports "already at the latest version".
+
 This repository is private. A licence will be added before it's published.

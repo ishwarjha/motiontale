@@ -1,6 +1,6 @@
 [project]
 name = "motiontale-engine"
-version = "0.1.0"
+version = "0.1.1"
 description = "The engine behind the Motiontale plugin: render, mix, capture, voice and check motion videos."
 requires-python = ">=3.12"              # the pinned numpy needs 3.12
 # Pinned to the versions the tests pass on; raise them together, run `uv lock`, and re-run both test files.

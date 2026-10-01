@@ -131,6 +131,11 @@ with tempfile.TemporaryDirectory() as t:
     out = subprocess.run([sys.executable, str(ROOT / "engine" / "lint.py"), f"{t}/v"], capture_output=True, text=True).stdout
 assert out.strip() == "Clean. Render it.", out
 
+# one version everywhere: installs are pinned to it, so a fix only reaches users when it goes up
+vers = {j(".claude-plugin/plugin.json")["version"], j(".codex-plugin/plugin.json")["version"],
+        re.search(r'^version = "([^"]+)"', (ROOT / "pyproject.toml").read_text(), re.M)[1]}
+assert len(vers) == 1, f"versions differ: {vers}"
+
 # every setting the engine reads is documented in .env.example
 env_doc = (ROOT / ".env.example").read_text()
 engine_py = [f for f in (ROOT / "engine").glob("*.py") if not f.name.startswith("test_")]    # tests set PATH etc. for themselves
