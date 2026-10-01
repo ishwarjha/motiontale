@@ -29,6 +29,33 @@ Twelve styles, each with its own length, formats, pacing, music and rules.
 | **App preview** | App demo | An App Store or Google Play preview, a mobile launch | 15–30 s | 9:16 (App Store size too), then 16:9 |
 | **Sizzle reel** | Highlight reel, hype video | A launch-week or year-in-review recap, a pitch or event opener | 45–90 s | 16:9, then 9:16 |
 
+### One of each
+
+Every video below was made with this plugin for [KoSolve](https://kosolve.ai), a real product, from its real screens, with sound. Click a poster to open the video; the videos are kept in the [Example videos release](https://github.com/ishwarjha/motiontale/releases/tag/examples), so they never download with the plugin.
+
+<table>
+<tr>
+<td align="center"><a href="https://github.com/ishwarjha/motiontale/releases/download/examples/editorial.mp4"><img src="docs/media/editorial.jpg" height="160" alt="Editorial example video"></a><br><b>Editorial</b> · 28 s</td>
+<td align="center"><a href="https://github.com/ishwarjha/motiontale/releases/download/examples/explainer.mp4"><img src="docs/media/explainer.jpg" height="160" alt="Explainer example video"></a><br><b>Explainer</b> · 60 s</td>
+<td align="center"><a href="https://github.com/ishwarjha/motiontale/releases/download/examples/tour.mp4"><img src="docs/media/tour.jpg" height="160" alt="Product tour example video"></a><br><b>Product tour</b> · 56 s</td>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/ishwarjha/motiontale/releases/download/examples/vertical.mp4"><img src="docs/media/vertical.jpg" height="160" alt="Vertical example video"></a><br><b>Vertical</b> · 20 s</td>
+<td align="center"><a href="https://github.com/ishwarjha/motiontale/releases/download/examples/keynote.mp4"><img src="docs/media/keynote.jpg" height="160" alt="Keynote example video"></a><br><b>Keynote</b> · 28 s</td>
+<td align="center"><a href="https://github.com/ishwarjha/motiontale/releases/download/examples/morph-loop.mp4"><img src="docs/media/morph-loop.jpg" height="160" alt="Morph loop example video"></a><br><b>Morph loop</b> · 22 s</td>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/ishwarjha/motiontale/releases/download/examples/story.mp4"><img src="docs/media/story.jpg" height="160" alt="Story example video"></a><br><b>Story</b> · 46 s</td>
+<td align="center"><a href="https://github.com/ishwarjha/motiontale/releases/download/examples/teaser.mp4"><img src="docs/media/teaser.jpg" height="160" alt="Teaser example video"></a><br><b>Teaser</b> · 14 s</td>
+<td align="center"><a href="https://github.com/ishwarjha/motiontale/releases/download/examples/data-story.mp4"><img src="docs/media/data-story.jpg" height="160" alt="Data story example video"></a><br><b>Data story</b> · 34 s</td>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/ishwarjha/motiontale/releases/download/examples/tutorial.mp4"><img src="docs/media/tutorial.jpg" height="160" alt="Tutorial example video"></a><br><b>Tutorial</b> · 44 s</td>
+<td align="center"><a href="https://github.com/ishwarjha/motiontale/releases/download/examples/app-preview.mp4"><img src="docs/media/app-preview.jpg" height="160" alt="App preview example video"></a><br><b>App preview</b> · 24 s</td>
+<td align="center"><a href="https://github.com/ishwarjha/motiontale/releases/download/examples/sizzle-reel.mp4"><img src="docs/media/sizzle-reel.jpg" height="160" alt="Sizzle reel example video"></a><br><b>Sizzle reel</b> · 44 s</td>
+</tr>
+</table>
+
 Need a style that isn't here? Adding one is a single file, described in [Extending it](#extending-it).
 
 ## How a video gets made
