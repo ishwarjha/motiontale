@@ -38,3 +38,5 @@ Final rulings: brand (K5), hook (K11), look (K20) and deliverables (K14) agreed;
 Held without change, with reasons:
 - K3: Jev asks for the exact selectors to crop (0.52). motion-capture finds selectors itself; asking users for CSS selectors burdens non-technical users and adds nothing the agent can't do. Jev's earlier probe put "nothing missing" first (0.40).
 - K9: Jev asks for the script text (0.42) or who records (0.35). The agent writes script.md from the brief for the user to read; asking the user to write it would constrain the agent's writing. Left for the owner to decide.
+
+Owner's decision (1 October): both held. K3: no selectors asked of the user; capture finds them. K9: no script asked of the user; the agent writes script.md from the brief.
