@@ -368,17 +368,46 @@ Deliver the wide and vertical versions, a poster and a GIF.
 
 ## Settings and keys
 
-Claude Code and Codex use your own sign-in. Motiontale never loads their API keys and never prints any key.
+Nothing here is needed to start. Your AI agent uses your own sign-in, and a voice you record yourself needs no keys. Keys come in only for an AI voice, or to run an agent on a machine where you can't sign in.
 
-Keys are only needed for an AI voice. Copy `.env.example` to `.env` in your workspace, set `VOICE_PROVIDER` to `google` (the default), `microsoft` or `elevenlabs`, and fill in that provider's keys:
+### 1. Create your `.env`
 
-| Provider | Keys |
-|---|---|
-| Google | `GEMINI_API_KEY` |
-| Microsoft | `AZURE_SPEECH_KEY`, `AZURE_SPEECH_REGION` |
-| ElevenLabs | `ELEVENLABS_API_KEY`, `ELEVENLABS_VOICE_ID` |
+```bash
+cp <plugin>/.env.example .env      # in your workspace, the folder that holds kit/
+```
 
-`film.py doctor` shows which sign-in and keys are active, without printing them.
+`.env` stays on your machine and is already in `.gitignore`. Fill in only what you use. A value exported in your shell takes priority over the file.
+
+### 2. Connect an AI voice (optional)
+
+Set `VOICE_PROVIDER` to the provider you want, then add that provider's keys.
+
+| Provider | `VOICE_PROVIDER` | Keys | Where to get them |
+|---|---|---|---|
+| Google (Gemini text-to-speech) | `google` (the default) | `GEMINI_API_KEY` | [Google AI Studio](https://aistudio.google.com) → Get API key → Create API key |
+| Microsoft (Azure AI Speech) | `microsoft` | `AZURE_SPEECH_KEY`, `AZURE_SPEECH_REGION` | Azure portal → create a **Speech** resource → open it → **Keys and Endpoint**: copy KEY 1 and the region (for example `westeurope`) |
+| ElevenLabs | `elevenlabs` | `ELEVENLABS_API_KEY`, `ELEVENLABS_VOICE_ID` | [elevenlabs.io](https://elevenlabs.io) → Developers → API Keys. Voice ID: My Voices → a voice's More actions → Copy voice ID |
+
+Each provider also has an optional voice setting with a sensible default: `GEMINI_TTS_VOICE` (for example Charon, Kore, Puck), `AZURE_TTS_VOICE` (for example en-US-AndrewNeural) or `ELEVENLABS_MODEL`. To give one video a different provider or voice, put `{"provider": "...", "voice": "..."}` in its `vo/voice.json`.
+
+Ask for an AI voice in your request ("use an AI voice from Google"), or run `voice.py cut <video> --tts`. The video's rules then record that the voice is AI.
+
+### 3. Sign in your AI agent
+
+| Agent | Usual way (no key) | On a server or in CI, with an API key |
+|---|---|---|
+| Claude Code | `claude auth login` | `export ANTHROPIC_API_KEY=...` in the shell that starts it (key from the Anthropic Console) |
+| Codex | `codex login` | `printenv OPENAI_API_KEY \| codex login --with-api-key` (key from the OpenAI platform) |
+
+Agent keys don't go in `.env`: Motiontale never loads them from it, and doesn't need them to make videos. Don't export an API key where you're already signed in, or the agent bills the key instead of your plan.
+
+### 4. Check it
+
+```bash
+.venv/bin/python <plugin>/engine/film.py doctor
+```
+
+It shows where your `.env` was found, whether each agent is signed in, whether the voice provider's keys are set, and where the sound library is. It never prints a key.
 
 ## Running it yourself
 
