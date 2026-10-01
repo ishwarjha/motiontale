@@ -34,7 +34,7 @@ Need a style that isn't here? Adding one is a single file, described in [Extendi
 ## How a video gets made
 
 1. **You ask.** In plain words, in Claude Code or Codex: *"Make a 45-second launch film for our new reports page."*
-2. **One round of questions.** What it is and who watches, the pain in your customer's words, three features and the payoff, the call to action, the style and formats, any references, the voice, and the facts you want on screen with their sources. Anything your request already answered is skipped.
+2. **One round of questions.** What it is and who watches, the pain in your customer's words, three features and the payoff, the call to action, the style, formats and where it will be posted, any references, the voice, your logo, typefaces and colours, and the facts you want on screen with their sources. Anything your request already answered is skipped.
 3. **You approve the shotlist.** Nothing is built before this.
 4. **Your real screens are captured,** with a record of where each one came from.
 5. **You approve four to six stills** from key moments. Nothing is fully rendered before this.
@@ -168,12 +168,13 @@ The best first request answers what the one round of questions would ask:
 
 1. What it is, in a few lines, who watches, and what they should do afterwards.
 2. The pain, in the words your customer would use.
-3. Three features, in order, and the payoff: one real result or number.
+3. Three features, in order, and the payoff: one real result or number, and whether everything on those screens can be shown publicly yet.
 4. The call to action and the link.
-5. The style, the length and the formats.
+5. The style, the length, the formats, and where it will be posted.
 6. References: one to three videos or frames you like, and what you like about them.
 7. The voice: none, your recording, or an AI voice.
 8. Every number or quote you want on screen, with its source and date.
+9. Your brand: the logo file, typefaces and colours.
 
 Give numbers exactly as your source shows them. If you don't have a real number yet, say so; the video will label demo data "Example" rather than invent one.
 
@@ -187,7 +188,7 @@ Each prompt below is complete. Replace everything in angle brackets.
 Make an editorial (Swiss style) launch video for <product>, 45 seconds, 16:9 first, then 1:1 and 9:16 laid out again from the same timeline.
 
 What it is: <product> helps <who> <do what>. Viewers are <audience>; afterwards they should <action>.
-The pain, in the customer's words: "<pain line>".
+The pain, in the customer's words: "<pain line>". The first frame is the thumbnail: the pain line, fully on screen.
 Features, in order: <feature 1>, <feature 2>, <feature 3>. The payoff: <result or number>, source <link or document, date>.
 Call to action: "<CTA>", link <url>.
 
@@ -195,6 +196,8 @@ Capture from <url>, using my signed-in Chrome if it needs a login: the screen fo
 Look: warm canvas, one serif-italic accent word per headline, real screens on white cards. Words rise one per beat; things change shape into the next thing, never cut or fade.
 Sound: music only, the payoff on the drop, a click on every real press, a pop on everything that lands.
 Facts: <each number or quote, with its source and date>.
+References: <1–3 videos or frames you like>; take <the pacing, type or camera> from each, never the words or colours.
+Brand: logo <file>, typefaces <names or files>, colours <hex values>.
 Deliver the wide film plus square and vertical versions, a poster at the payoff and a GIF preview. Every check passing and every critique score 8 or more, or tell me what's still below 8 after three rounds.
 ```
 
@@ -206,13 +209,15 @@ Deliver the wide film plus square and vertical versions, a poster at the payoff 
 Make a 75-second explainer for <product>, 16:9 first, then 1:1.
 
 Viewers are <buyers or users>. Afterwards they should <book a demo, start a trial, reply>.
-The problem, in the customer's words: "<pain line>". What it costs them: <cost>, source <link, date>.
+The problem, in the customer's words: "<pain line>". The first frame is the thumbnail: that line, fully on screen. What it costs them: <cost>, source <link, date>.
 How it works, in three steps: <step 1>, <step 2>, <step 3>. The proof: <real result>, source <link or case study, date>.
 Call to action: "<CTA>", link <url>.
 
 Voice: <my recording: one take per scene | an AI voice from <Google, Microsoft or ElevenLabs>, labelled as AI>. Write the script with one scene per step, then cut it and place it on the beat. Say numbers exactly as the script writes them; add pronunciations for <product name, acronyms>.
 Capture from <url>: each step's screen, plus transparent crops of <the parts that should move>.
 A title for each step. A stat card for each number, with the source under it. The music drops under the voice and comes back for the payoff.
+References: <1–3 videos or frames you like>; take <the pacing, type or camera> from each, never the words or colours.
+Brand: logo <file>, typefaces <names or files>, colours <hex values>.
 Deliver the wide and square films, captions, a poster and a GIF. Every check passing and every critique score 8 or more, or tell me what's still below 8 after three rounds.
 ```
 
@@ -224,12 +229,14 @@ Deliver the wide and square films, captions, a poster and a GIF. Every check pas
 Make a product tour of <product>, about <5 minutes | 90 seconds>, 16:9.
 
 Viewers are <new users | people evaluating it>. By the end they should know how to <main job> and <next step>.
-Open with the pain in one line, "<pain line>", and a promise, "<promise>".
+The first frame is the thumbnail: the pain in one line, "<pain line>", fully on screen. Then a promise, "<promise>".
 Chapters, each with a title: <1. step>, <2. step>, <3. step>, <…>. For each, show the real screen, zoom to the part that matters, and end on the result.
 Capture every screen above from <url> with my signed-in Chrome, on a demo account, in the state each step reaches. Patch out any personal data rather than blurring it.
-Voice: <my recording | an AI voice, labelled as AI>, one scene per chapter. Quiet music under the voice, no drop.
+Voice: <my recording | an AI voice, labelled as AI>, one scene per chapter. Pronunciations: <product name, acronyms>. Quiet music under the voice, no drop.
 Call to action only at the end: "<CTA>", link <url>.
 Facts: <any number shown, with its source and date>.
+References: <1–3 videos or frames you like>; take <the pacing, type or camera> from each, never the words or colours.
+Brand: logo <file>, typefaces <names or files>, colours <hex values>.
 Deliver the film with YouTube chapters, captions, a poster and a GIF.
 ```
 
@@ -241,10 +248,13 @@ Deliver the film with YouTube chapters, captions, a poster and a GIF.
 Make a 20-second vertical video for <product>, 1080×1920, from the <video name> timeline if it exists, otherwise its own.
 
 The first frame is the thumbnail: the pain as words, fully on screen: "<pain line>".
-Then one feature: <feature>, on its real screen or as a shape changing from <shape> into <shape>.
+Then one feature: <feature>, on its real screen (captured from <url>, my signed-in Chrome if it needs a login, on a demo account) or as a shape changing from <shape> into <shape>.
 Then the proof: <number>, source <link, date>. End card: "<CTA>", with <domain> as plain text (the link goes in the first comment), looping back into the first frame.
 Headlines at least 96 px, nothing under the app's buttons and captions, readable with the sound off.
 Sound: the music around its drop, so the proof lands on it. Nothing depends on hearing it.
+References: <1–3 videos or frames you like>; take <the pacing, type or camera> from each, never the words or colours.
+Brand: logo <file>, typefaces <names or files>, colours <hex values>.
+Facts: <each number, quote or name on screen, with its source and date>; anything without a source is shown labelled "Example".
 Deliver the vertical video, a poster and a GIF. Check it on the phone sheet and watch the loop seam.
 ```
 
@@ -259,8 +269,11 @@ Open on the line people should remember, already on screen in the first frame: "
 Build to the reveal: <what is revealed>, on one real screen, no cursor chasing. The proof on the drop: <number or result>, source <link, date>.
 End card: "<CTA>", <url>.
 Look: large type, flat contrast, no glows or light effects; dark only if the product itself is dark.
-Capture <the screen or element to reveal> as a transparent crop so it can rise on its own.
-Sound: music only, one change per bar, the proof on the drop.
+Capture <the screen or element to reveal> from <url> (my signed-in Chrome if it needs a login, on a demo account) as a transparent crop so it can rise on its own.
+Sound: music and effects, no voice; one change per bar, the proof on the drop.
+References: <1–3 videos or frames you like>; take <the pacing, type or camera> from each, never the words or colours.
+Brand: logo <file>, typefaces <names or files>, colours <hex values>.
+Facts: <each number, quote or name on screen, with its source and date>; anything without a source is shown labelled "Example".
 Deliver the wide and square films, a poster on the reveal and a GIF.
 ```
 
@@ -274,8 +287,11 @@ Make a 20-second morph loop for <product>, 1:1 first, then 9:16 and 16:9.
 Two bars of the pain in words: "<pain line>".
 Then one card changes through these real states, one per bar: <state 1>, <state 2>, <state 3>, <state 4>, <state 5>. Each state is a real capture; the card never cuts, it changes shape into the next.
 The last state folds back into the first frame so the loop has no seam, and the music runs straight through it.
-Capture each state from <url>, with transparent crops of <the elements that move>.
+Capture each state from <url> (my signed-in Chrome if it needs a login, on a demo account), with transparent crops of <the elements that move>.
 Something changes on every beat. No voice.
+References: <1–3 videos or frames you like>; take <the pacing, type or camera> from each, never the words or colours.
+Brand: logo <file>, typefaces <names or files>, colours <hex values>.
+Facts: <each number, quote or name on screen, with its source and date>; anything without a source is shown labelled "Example".
 Deliver all three formats, a loop preview so I can watch the seam twice, and a GIF.
 ```
 
@@ -289,9 +305,11 @@ Make a 90-second story video about <the story: how the problem began, what chang
 Open on the most striking image in the first two seconds: <image or line>.
 Chapters, each with a title: <1. before>, <2. the turn>, <3. after>, <…>. A new image or payoff every three to five seconds.
 Every date, name, quote and number needs a source: <each, with its source and date>. Quotes appear with who said them.
-Capture <any product screens that appear>; everything else is type and shapes, never drawn product screens.
-Voice: <none | my recording | an AI voice, labelled as AI>. Chapter turns on the downbeat, the payoff on the drop.
+Capture <any product screens that appear> from <url> (my signed-in Chrome if it needs a login, on a demo account); everything else is type and shapes, never drawn product screens.
+Voice: <none | my recording | an AI voice, labelled as AI>; if voiced, pronunciations: <names, acronyms>. Chapter turns on the downbeat, the payoff on the drop.
 End card: "<CTA>", <url>.
+References: <1–3 videos or frames you like>; take <the pacing, type or camera> from each, never the words or colours.
+Brand: logo <file>, typefaces <names or files>, colours <hex values>.
 Deliver the video, captions if it's voiced, chapters if it runs long enough, a poster once the payoff has settled, and a GIF.
 ```
 
@@ -305,9 +323,12 @@ Make a 15-second teaser for <feature or release>, in 9:16 and 16:9 from one time
 The first frame is the payoff itself, fully on screen: "<payoff line>".
 Then the one action that got there: <action> on the real screen, or a shape changing from <before> into <after>.
 Then the proof: <number>, source <link, date>. End card: "<CTA>", <url>.
-Capture <the screen and element for the action>.
+Capture <the screen and element for the action> from <url>, my signed-in Chrome if it needs a login, on a demo account.
 Sound: the music, the proof on the drop, a click on the press.
 The accent colour means the result, and nothing else.
+References: <1–3 videos or frames you like>; take <the pacing, type or camera> from each, never the words or colours.
+Brand: logo <file>, typefaces <names or files>, colours <hex values>.
+Facts: <each number, quote or name on screen, with its source and date>; anything without a source is shown labelled "Example".
 Deliver both formats, a poster and a GIF.
 ```
 
@@ -323,7 +344,9 @@ Then one chart per insight, two to four in all: <chart 1: what it shows, the val
 Take the values from <CSV or table>, each with its line in facts.md.
 Then a stat card for each headline number, and the biggest one on the drop: <number>, source <link, date>.
 End card: "<CTA>", <url>.
-Voice: <none | my recording | an AI voice, labelled as AI>.
+Voice: <none | my recording | an AI voice, labelled as AI>; if voiced, pronunciations: <names, acronyms>.
+References: <1–3 videos or frames you like>; take <the pacing, type or camera> from each, never the words or colours.
+Brand: logo <file>, typefaces <names or files>, colours <hex values>.
 Deliver the wide and square films, a poster and a GIF. The facts check has to pass on every number the frames show.
 ```
 
@@ -337,8 +360,10 @@ Make a 60-second tutorial: "How to <task> in <product>", 16:9.
 Open on the finished result for two seconds: <result screen>.
 Steps, each with a numbered title held on screen: <Step 1: …>, <Step 2: …>, <Step 3: …>. For each, show the real screen before and after the click, and treat the screen change on each click as an intended cut.
 Capture every before and after state from <url> with my signed-in Chrome, on a demo account. Where something is typed, reveal the real typed state with the typing sound.
-Voice: <my recording | an AI voice, labelled as AI>. Captions always, from the same words the screen shows.
+Voice: <my recording | an AI voice, labelled as AI>. Pronunciations: <product name, acronyms>. Captions always, from the same words the screen shows.
 End card: the help link, <url>.
+References: <1–3 videos or frames you like>; take <the pacing, type or camera> from each, never the words or colours.
+Brand: logo <file>, typefaces <names or files>, colours <hex values>.
 Deliver the video, captions, a poster and a GIF.
 ```
 
@@ -351,10 +376,13 @@ Make a 25-second app preview for <app>, 1080×1920 plus the App Store's 886×192
 
 Open on the app's best screen with a headline above it: "<headline>".
 Then taps and swipes on real screens: <screen 1, action, screen 2>, <…>. One screen becomes the next through a shared element; each tap's screen change is an intended cut.
-Screens: <screenshots from my phone or an emulator in <folder>: import them with their source> or <capture <url> at phone size>.
+Screens: <screenshots from my phone or an emulator in <folder>: import them with their source> or <capture <url> at phone size, signed in to a demo account>.
 The proof: <rating or number>, source <store page or dashboard, date>.
 End card: <the store's official badge, if I supply the file; otherwise the store's name as text>.
 No voice. The music from the library.
+References: <1–3 videos or frames you like>; take <the pacing, type or camera> from each, never the words or colours.
+Brand: logo <file>, typefaces <names or files>, colours <hex values>.
+Facts: <each number, quote or name on screen, with its source and date>; anything without a source is shown labelled "Example".
 Deliver both vertical sizes, the wide version, a poster and a GIF.
 ```
 
@@ -366,11 +394,13 @@ Deliver both vertical sizes, the wide version, a poster and a GIF.
 Make a 60-second sizzle reel of <this year's releases | launch week | the product>, 16:9 first, then 9:16.
 
 Open on the strongest moment: <image or line>. Not the biggest number; that waits for the drop.
-Highlights, one per bar and getting faster (four beats, then two, then one): <highlight 1, on its real screen>, <highlight 2>, <…>. Each screen swaps while its card is smallest, so no cut shows.
+Highlights, one per bar and getting faster (four beats, then two, then one): <highlight 1, on its real screen>, <highlight 2>, <…>. Capture each screen from <url>, my signed-in Chrome if it needs a login, on a demo account. Each screen swaps while its card is smallest, so no cut shows.
 A stat card for each real number: <number, source, date>, <…>. Quotes only with who said them and where: "<quote>", <name, publication, date>.
 The biggest number on the drop, held for a full bar: <number>, source <link, date>.
 End card: "<CTA>", <url>.
 No voice. Music that builds.
+References: <1–3 videos or frames you like>; take <the pacing, type or camera> from each, never the words or colours.
+Brand: logo <file>, typefaces <names or files>, colours <hex values>.
 Deliver the wide and vertical versions, a poster and a GIF.
 ```
 

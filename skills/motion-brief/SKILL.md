@@ -11,16 +11,17 @@ This skill writes the brief and stops for approval twice: after the shotlist, an
 Ask only what the request doesn't already answer:
 1. What is it, in five lines? Who watches, and what should they do after?
 2. The pain, in the words a customer would use.
-3. Three features, in order, and the payoff: one real result or number.
+3. Three features, in order, and the payoff: one real result or number. Is everything on those screens public yet (unreleased features, customer names)?
 4. Call to action and link.
-5. Style (list `../motion-video/styles/`), length, formats (16:9, 1:1, 9:16).
+5. Style (list `../motion-video/styles/`), length, formats (16:9, 1:1, 9:16), and where it will be posted (its safe areas).
 6. References: 1-3 videos, a frame, or a folder of your own images. Name the style in words as well as linking it.
 7. Voice: none, your recording, or TTS labelled as AI.
 8. Facts: every number or claim you want on screen, with where it comes from.
+9. Brand: the logo file, typefaces and colours. Never invent a logo; with none supplied, the product name is set in type.
 Default anything missing from the style card and say which. Never default the payoff or the call to action.
 
 ## 2. Write, in `<slug>/`
-- `BRIEF.md`: the one-line message (what the viewer should believe at the end), audience, style, length, formats, voice, references and what to take from each (grammar only), payoff, CTA.
+- `BRIEF.md`: the one-line message (what the viewer should believe at the end), audience, style, length, formats and where it's posted, brand (logo, type, colours), voice, references and what to take from each (grammar only), payoff, CTA.
 - `facts.md`: `| claim as shown | source | date | kind |`, kind `fact` or `example`. A claim with no source is cut or becomes an `example`.
 - `shotlist.md`: on the beat grid from the style's tempo. Per shot: beats, the real UI state (or "illustration" for non-product elements in story styles), camera, on-screen text, effect, and which fact it shows. The first frame states the pain or opens on the payoff; something new every 2-4 seconds.
 
