@@ -462,7 +462,7 @@ if __name__ == "__main__":
     fs = lint(sys.argv[1])
     for f in fs:
         print(fmt(f))
-        b = sum(f["sev"] == "B" for f in fs)
-        print(f"score: {b} blocking, {sum(f['sev'] == 'P' for f in fs)} polish, {sum(f['sev'] == 'V' for f in fs)} to verify"
-              if fs else "Clean. Render it.")
+    b = sum(f["sev"] == "B" for f in fs)
+    print(f"score: {b} blocking, {sum(f['sev'] == 'P' for f in fs)} polish, {sum(f['sev'] == 'V' for f in fs)} to verify"
+          if fs else "Clean. Render it.")
     sys.exit(1 if any(f["sev"] == "B" for f in fs) else 0)

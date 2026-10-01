@@ -125,6 +125,12 @@ lock = {m[1]: m[2] for m in re.finditer(r'\[\[package\]\]\nname = "([^"]+)"\nver
 req = dict(x.split("==") for x in pins((ROOT / "engine" / "requirements.txt").read_text()))
 assert all(lock.get(k) == v for k, v in req.items()) and len(req) >= 5, "engine/requirements.txt has drifted from uv.lock: re-export it"
 
+# lint's summary: a clean film says so, once (the score line sat inside the findings loop)
+with tempfile.TemporaryDirectory() as t:
+    subprocess.run([sys.executable, str(ROOT / "engine" / "film.py"), "new", f"{t}/v"], check=True, capture_output=True)
+    out = subprocess.run([sys.executable, str(ROOT / "engine" / "lint.py"), f"{t}/v"], capture_output=True, text=True).stdout
+assert out.strip() == "Clean. Render it.", out
+
 # every setting the engine reads is documented in .env.example
 env_doc = (ROOT / ".env.example").read_text()
 engine_py = [f for f in (ROOT / "engine").glob("*.py") if not f.name.startswith("test_")]    # tests set PATH etc. for themselves
