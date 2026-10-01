@@ -16,7 +16,7 @@ ENGINE is `../../engine/` from this file (film.py, voice.py, kit.py, motion.js, 
 6. kit/ and other films are read-only. Write only inside `<slug>/`.
 7. No crossfades, glows, particles, 3D, gradients on UI, or the banned defaults in CLAUDE.template.md.
 8. Every number on screen has a facts.md row (fact with source, or example shown labelled "Example").
-9. Nothing is shown until `film.py check` passes and the scored critique in checks.md has every score at 8 or more, or 3 rounds are done.
+9. No video is shown as finished (the brief's stills and animatic are previews) until `film.py check` passes and the scored critique in checks.md has every score at 8 or more, or 3 rounds are done.
 
 ## Brief first
 Run the motion-brief skill: it interviews once, writes `BRIEF.md`, `facts.md` and `shotlist.md`, and stops for approval after the shotlist and after the stills. Films over about 90 s, or needing several agents, or expected to run over an hour: hand the whole production to the motion-director skill instead of the pipeline below.

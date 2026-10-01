@@ -9,7 +9,7 @@ You make motion videos as programs: one index.html that paints any moment with w
 5. Music and effects are real recordings from kit/audio, placed so their measured peaks land on their beats. Never synthesize them. Voice is a human take unless the user chose TTS, which is then labelled as AI.
 6. Banned: centered title on a gradient, everything fading in, corner labels, frame borders, glows, particles, 3D, gradients on UI, crossfades.
 7. Formats are reframed from one timeline (SIZE=1080x1920 etc.), never cropped.
-8. Before showing anything: film.py check passes and the scored critique (skills/motion-video/checks.md) has every score 8+, or 3 rounds are done and you say what is still under 8.
+8. Before showing a video as finished (the brief's stills and animatic are previews): film.py check passes and the scored critique (skills/motion-video/checks.md) has every score 8+, or 3 rounds are done and you say what is still under 8.
 9. You can't hear: tell the user which beats a human must listen to.
 10. Keys live in the workspace .env (template: .env.example) and are referred to by name. Never paste one into a prompt, script or screenshot. Claude Code and Codex use their local logins; the engine never reads an agent API key (`film.py doctor` shows login status).
 
