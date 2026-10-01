@@ -370,13 +370,15 @@ Deliver the wide and vertical versions, a poster and a GIF.
 
 Nothing here is needed to start. Your AI agent uses your own sign-in, and a voice you record yourself needs no keys. Keys come in only for an AI voice, or to run an agent on a machine where you can't sign in.
 
-### 1. Create your `.env`
+### 1. Rename `.env.example` to `.env` and add your keys
+
+Copy `.env.example` from the plugin into your workspace (the folder that holds `kit/`), rename the copy to `.env`, and add the keys you use:
 
 ```bash
-cp <plugin>/.env.example .env      # in your workspace, the folder that holds kit/
+cp <plugin>/.env.example .env      # run in your workspace
 ```
 
-`.env` stays on your machine and is already in `.gitignore`. Fill in only what you use. A value exported in your shell takes priority over the file.
+Keep the plugin's own `.env.example` as it is: Motiontale reads it to know which settings are allowed. `.env` stays on your machine and is already in `.gitignore`. A value exported in your shell takes priority over the file.
 
 ### 2. Connect an AI voice (optional)
 
