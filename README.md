@@ -551,7 +551,7 @@ python3 $E/audit.py .                                         # the whole worksp
 
 ## What it costs
 
-A short video (about 15 seconds) takes roughly **25 minutes and about $5** with Claude Code, or **about 10 minutes** with Codex. On a Claude Pro or Max plan, or a ChatGPT plan, that comes out of your normal usage rather than a separate bill.
+A short video costs roughly **$4–6** in AI usage at API prices; a 60-second video with several scenes, around **$25–30**. On a Pro or Max plan it comes out of your normal usage, not a separate bill.
 
 Setup is free and takes a few minutes the first time. The sound library is free. An AI voice, if you choose one, is billed by its provider.
 
@@ -573,7 +573,7 @@ Setup is free and takes a few minutes the first time. The sound library is free.
 No pixels are generated. Your agent writes the video as code, and the engine draws each frame from it. The same code produces the same video, down to invisible edge differences on text the camera zooms into.
 
 **What does it cost?**
-About $5 for a short video with Claude Code, usually from your plan's normal usage. See [What it costs](#what-it-costs). An AI voice is billed by its provider. The sound library is free to use under the licence listed for each file.
+Roughly $4–6 for a short video and $25–30 for a 60-second one, at API prices; on a plan it comes out of your normal usage. See [What it costs](#what-it-costs). An AI voice is billed by its provider. The sound library is free to use under the licence listed for each file.
 
 **How long does a video take?**
 The render takes minutes. Most of the time goes into the questions and your two approvals, which is where the video gets good.
