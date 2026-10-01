@@ -47,9 +47,9 @@ Need a style that isn't here? Adding one is a single file, described in [Extendi
 
 **Numbers you can stand behind.** Every number, price, date or quote on screen needs a line in the film's `facts.md` with its source and date. Demo data is allowed only when it's labelled "Example" on screen, in the same card. A check reads every number in the video's text as it plays, so a figure can't slip in unsourced. Numbers inside your captured screens are your product's own; check those against `facts.md` by eye.
 
-**Real sound, on the beat.** Music and effects are real recordings from a licensed library, each measured once so its loudest moment lands exactly on the event it belongs to. The music is cut so its drop lands on your payoff. A voice ducks the music, and the final mix meets streaming loudness (-14 LUFS) without being squashed.
+**Real sound, on the beat.** Music and effects are real recordings from a licensed library, each measured once so its loudest moment lands exactly on the event it belongs to. The music is cut so its drop lands on your payoff. A voice ducks the music. The mix aims for streaming loudness (-14 LUFS) without being squashed, and a check fails any video more than 1 LU off.
 
-**Checked before you see it.** Up to fifteen checks run, depending on the video. Nine are measured pass-or-fail: readable text inside the frame, sourced numbers, the moments you said must happen, the same frame however it's rendered, no stray flashes or unplanned cuts, a clean loop seam, effects on their events, sound still in sync in the final file, and loudness. The others are sheets and frames laid out for the agent to look at. Then a scored critique on eight axes (hook, readability, composition, motion, variety, brand, sound, polish): every score at 8 or more, or, after three rounds of fixes, a list of what's still below 8.
+**Checked before you see it.** Up to fifteen checks run, depending on the video. Ten can fail the video: the page running without errors, readable text inside the frame, sourced numbers, the moments you said must happen, the same frame however it's rendered, no stray flashes or unplanned cuts, a clean loop seam, effects on their events, sound still in sync in the final file, and loudness. The rest are sheets and frames laid out for the agent to look at. Then a scored critique on eight axes (hook, readability, composition, motion, variety, brand, sound, polish): every score at 8 or more, or, after three rounds of fixes, a list of what's still below 8.
 
 **Change it later, in seconds or minutes.** The film is kept as the code that draws it. A new number, a new line or a new screen is an edit and a re-render. A sound-only change swaps in without re-rendering the picture.
 
@@ -88,7 +88,7 @@ The sound library lives in `kit/` in the workspace, or wherever `MOTION_KIT` poi
 | Capture whole pages or single elements (a button, a card, a chart) | By page address and element, at twice screen resolution (three times for deep zooms); in your own Chrome, at that screen's resolution |
 | Lift an element off its page so it can move on its own | A transparent crop: everything behind and around it is cleared |
 | Show a state the app doesn't show on its own | A patch that fills a field, opens a menu or seeds demo data on the real page before the shot |
-| Capture behind a login | Your own signed-in Chrome, started with remote debugging on port 9222 (capture works in a tab of its own and closes only that), or a saved sign-in session stored outside the video folder and readable only by you |
+| Capture behind a login | Your own signed-in Chrome, started with remote debugging on port 9222 (capture works in a tab of its own and closes only that; writes are blocked in that browser while it runs, except from its own background service workers), or a saved sign-in session stored outside the video folder and readable only by you |
 | Use screenshots from a phone, an emulator or a design review | Import them; each keeps its source, the part used and a fingerprint |
 | Trust that nothing changes | While capturing, only read requests leave the browser (GET, HEAD, OPTIONS). Form posts, pop-up requests and messages the page sends over live connections are dropped, unless you allow writes for a demo account. In your own Chrome, its background service workers can't be blocked, so capture a demo account there |
 
@@ -102,10 +102,10 @@ Every captured image is recorded in `provenance.json` with its address, the elem
 
 ### Music, effects and voice
 
-- **The sound library** is a fixed set of real recordings from a free-to-use library: one music track (121 BPM) and eight effects (click, typing, whoosh, pop, ding, success, coins, impact), each measured for its tempo, beats, drop and peak, with its licence listed in `kit/AUDIO.md`. Adding a sound means adding it to `kit.py`'s list and rebuilding; a second music track, or one outside 110–125 BPM, needs a code change.
+- **The sound library** is a fixed set of real recordings from a free-to-use library: one music track (121 BPM; `kit.py` keeps a fallback track in case the first won't download) and eight effects (click, typing, whoosh, pop, ding, success, coins, impact), each measured for its tempo, beats, drop and peak, with its licence listed in `kit/AUDIO.md`. Adding a sound means adding it to `kit.py`'s list and rebuilding; a second music track, or one outside 110–125 BPM, needs a code change.
 - **Timing:** effects land on their events by their measured peak; a click lands on the press, not the release, when it's marked to (the template does, and lint warns when it isn't); the music's drop lands on your payoff; a looping video's music runs straight through the seam.
 - **Voice:** record it yourself, one take per scene, or choose an AI voice from Google, Microsoft or ElevenLabs, which is labelled as AI in the film's rules. Each take is transcribed and matched to the script (numbers word for word), cut into sentences and placed on the beat grid. A pronunciation list handles names and acronyms.
-- **Mix:** the music sits under the voice and comes up for the payoff; a short limiter holds only the loudest peaks, so the final file reaches -14 LUFS with true peak at or below -1 dBTP. Music, effects and voice are also saved as separate stems.
+- **Mix:** the music sits under the voice and comes up for the payoff; a short limiter takes at most 12 dB off the loudest peaks so plain gain can bring the mix to -14 LUFS, and the loudness check fails a file more than 1 LU off or with true peak above -1 dBTP. Music, effects and voice are also saved as separate stems.
 
 ### Motion and look
 
@@ -144,7 +144,7 @@ Videos over about 90 seconds, or big enough to need several agents, get a direct
 
 - **Review** a film's code against the rules before rendering, with every finding stated as a fix.
 - **Audit** a whole workspace: rule breaks per video, videos out of date with their code, videos not checked since their last render, missing critiques and recipes, sounds without a licence, stale engine copies, unused screenshots and leftover build files, ranked by what blocks shipping.
-- **Lint** runs before every render and blocks it on a rule break: an unsourced number, a fade or glow, a timer, a missing capture record, or a music tempo that doesn't match the video's.
+- **Lint** runs before every render and blocks it on a rule break: an unsourced number it can read in the code (the facts check catches the rest on screen), a fade or glow, a timer, a missing capture record, or a music tempo that doesn't match the video's.
 
 ### Extending it
 
@@ -408,7 +408,7 @@ python3 $E/audit.py .                                         # the whole worksp
 - **Everything is type, shapes and your real captures.** There's no generated imagery and no stock footage, by design.
 - **Rendering happens on your computer.** Measured on the Mac it was built on, with six render workers: a 60-second video took about four minutes and a 14-second one under a minute. A busier or smaller machine takes longer.
 - **The voice check understands English,** and downloads its speech model (about 150 MB) the first time a voice is checked. On-screen text and captions can be any language the fonts cover; the transcript match that checks a recorded or AI voice is English only.
-- **The sound library is small and fixed:** one music track (121 BPM) and eight effects. Styles that would suit a slower track use this one; a different track needs a code change in `kit.py`.
+- **The sound library is small and fixed:** one music track (121 BPM, with a fallback listed in case it won't download) and eight effects. Styles that would suit a slower track use this one; a different track needs a code change in `kit.py`.
 - **Phone screens come in as screenshots.** Capture works on web pages directly; for a native app, import screenshots from a phone or emulator.
 - **Personal data is your call.** Capture a demo account, or patch personal details out on the page; nothing is blurred automatically.
 - **Replay is nearly always exact.** Text the camera zooms into can come back an invisible fraction of a shade different, most often when six workers render at once on a busy machine; with one worker it has matched exactly.
