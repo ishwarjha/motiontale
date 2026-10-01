@@ -31,28 +31,28 @@ Twelve styles, each with its own length, formats, pacing, music and rules.
 
 ### One of each
 
-Every video below was made with this plugin for [KoSolve](https://kosolve.ai), a real product, from its real screens, with sound. Click a poster to open the video; the videos are kept in the [Example videos release](https://github.com/ishwarjha/motiontale/releases/tag/examples), so they never download with the plugin.
+Every video below was made with this plugin for [KoSolve](https://kosolve.ai), a real product, from its real screens, with sound. Click a poster to jump to its style in [Ask for a video](#ask-for-a-video), where the video plays next to the prompt that describes it.
 
 <table>
 <tr>
-<td align="center"><a href="https://github.com/ishwarjha/motiontale/releases/download/examples/editorial.mp4"><img src="docs/media/editorial.jpg" height="160" alt="Editorial example video"></a><br><b>Editorial</b> · 28 s</td>
-<td align="center"><a href="https://github.com/ishwarjha/motiontale/releases/download/examples/explainer.mp4"><img src="docs/media/explainer.jpg" height="160" alt="Explainer example video"></a><br><b>Explainer</b> · 60 s</td>
-<td align="center"><a href="https://github.com/ishwarjha/motiontale/releases/download/examples/tour.mp4"><img src="docs/media/tour.jpg" height="160" alt="Product tour example video"></a><br><b>Product tour</b> · 56 s</td>
+<td align="center"><a href="#editorial"><img src="docs/media/editorial.jpg" height="160" alt="Editorial example video"></a><br><b>Editorial</b> · 28 s</td>
+<td align="center"><a href="#explainer"><img src="docs/media/explainer.jpg" height="160" alt="Explainer example video"></a><br><b>Explainer</b> · 60 s</td>
+<td align="center"><a href="#product-tour"><img src="docs/media/tour.jpg" height="160" alt="Product tour example video"></a><br><b>Product tour</b> · 56 s</td>
 </tr>
 <tr>
-<td align="center"><a href="https://github.com/ishwarjha/motiontale/releases/download/examples/vertical.mp4"><img src="docs/media/vertical.jpg" height="160" alt="Vertical example video"></a><br><b>Vertical</b> · 20 s</td>
-<td align="center"><a href="https://github.com/ishwarjha/motiontale/releases/download/examples/keynote.mp4"><img src="docs/media/keynote.jpg" height="160" alt="Keynote example video"></a><br><b>Keynote</b> · 28 s</td>
-<td align="center"><a href="https://github.com/ishwarjha/motiontale/releases/download/examples/morph-loop.mp4"><img src="docs/media/morph-loop.jpg" height="160" alt="Morph loop example video"></a><br><b>Morph loop</b> · 22 s</td>
+<td align="center"><a href="#vertical"><img src="docs/media/vertical.jpg" height="160" alt="Vertical example video"></a><br><b>Vertical</b> · 20 s</td>
+<td align="center"><a href="#keynote"><img src="docs/media/keynote.jpg" height="160" alt="Keynote example video"></a><br><b>Keynote</b> · 28 s</td>
+<td align="center"><a href="#morph-loop"><img src="docs/media/morph-loop.jpg" height="160" alt="Morph loop example video"></a><br><b>Morph loop</b> · 22 s</td>
 </tr>
 <tr>
-<td align="center"><a href="https://github.com/ishwarjha/motiontale/releases/download/examples/story.mp4"><img src="docs/media/story.jpg" height="160" alt="Story example video"></a><br><b>Story</b> · 46 s</td>
-<td align="center"><a href="https://github.com/ishwarjha/motiontale/releases/download/examples/teaser.mp4"><img src="docs/media/teaser.jpg" height="160" alt="Teaser example video"></a><br><b>Teaser</b> · 14 s</td>
-<td align="center"><a href="https://github.com/ishwarjha/motiontale/releases/download/examples/data-story.mp4"><img src="docs/media/data-story.jpg" height="160" alt="Data story example video"></a><br><b>Data story</b> · 34 s</td>
+<td align="center"><a href="#story"><img src="docs/media/story.jpg" height="160" alt="Story example video"></a><br><b>Story</b> · 46 s</td>
+<td align="center"><a href="#teaser"><img src="docs/media/teaser.jpg" height="160" alt="Teaser example video"></a><br><b>Teaser</b> · 14 s</td>
+<td align="center"><a href="#data-story"><img src="docs/media/data-story.jpg" height="160" alt="Data story example video"></a><br><b>Data story</b> · 34 s</td>
 </tr>
 <tr>
-<td align="center"><a href="https://github.com/ishwarjha/motiontale/releases/download/examples/tutorial.mp4"><img src="docs/media/tutorial.jpg" height="160" alt="Tutorial example video"></a><br><b>Tutorial</b> · 44 s</td>
-<td align="center"><a href="https://github.com/ishwarjha/motiontale/releases/download/examples/app-preview.mp4"><img src="docs/media/app-preview.jpg" height="160" alt="App preview example video"></a><br><b>App preview</b> · 24 s</td>
-<td align="center"><a href="https://github.com/ishwarjha/motiontale/releases/download/examples/sizzle-reel.mp4"><img src="docs/media/sizzle-reel.jpg" height="160" alt="Sizzle reel example video"></a><br><b>Sizzle reel</b> · 44 s</td>
+<td align="center"><a href="#tutorial"><img src="docs/media/tutorial.jpg" height="160" alt="Tutorial example video"></a><br><b>Tutorial</b> · 44 s</td>
+<td align="center"><a href="#app-preview"><img src="docs/media/app-preview.jpg" height="160" alt="App preview example video"></a><br><b>App preview</b> · 24 s</td>
+<td align="center"><a href="#sizzle-reel"><img src="docs/media/sizzle-reel.jpg" height="160" alt="Sizzle reel example video"></a><br><b>Sizzle reel</b> · 44 s</td>
 </tr>
 </table>
 
@@ -211,6 +211,8 @@ Each prompt below is complete. Replace everything in angle brackets.
 
 **Choose it when** the announcement itself is the story: a launch, a new homepage, a headline feature. Clean type, one accent word per line, the product doing the talking, music only.
 
+https://github.com/user-attachments/assets/c6472f46-c980-45e5-9a3c-6feb6e63b1cb
+
 ```text
 Make an editorial (Swiss style) launch video for <product>, 45 seconds, 16:9 first, then 1:1 and 9:16 laid out again from the same timeline.
 
@@ -232,6 +234,8 @@ Deliver the wide film plus square and vertical versions, a poster at the payoff 
 
 **Choose it when** someone needs to understand how it works before they buy: a sales page, a follow-up after a demo, a pitch. A voice tells the story and the real screens prove it.
 
+https://github.com/user-attachments/assets/31f9916e-3c0f-4544-83d5-123ebdd99f7e
+
 ```text
 Make a 75-second explainer for <product>, 16:9 first, then 1:1.
 
@@ -252,6 +256,8 @@ Deliver the wide and square films, captions, a poster at <the moment to show, or
 
 **Choose it when** people need to learn the product, not just want it: onboarding, a help centre, a "see it in action" page. Chaptered, step by step, voiced.
 
+https://github.com/user-attachments/assets/6d452d99-3d48-4fc6-9dfa-f747b3935166
+
 ```text
 Make a product tour of <product>, about <5 minutes | 90 seconds>, 16:9.
 
@@ -271,6 +277,8 @@ Deliver the film with YouTube chapters, captions, a poster and a GIF.
 
 **Choose it when** the video lives in a phone feed and most people watch without sound: Reels, Shorts, TikTok. Big words on the beat, one feature, and an ending that loops back to the start.
 
+https://github.com/user-attachments/assets/f7b403ed-d97e-42e5-913c-ef71568841a4
+
 ```text
 Make a 20-second vertical video for <product>, 1080×1920, from the <video name> timeline if it exists, otherwise its own.
 
@@ -289,6 +297,8 @@ Deliver the vertical video, a poster at <the moment to show, or the payoff> and 
 ### Keynote
 
 **Choose it when** the moment matters more than the details: an event opener, a major release, a pinned post. One statement at a time, slow and large, the product revealed on the drop.
+
+https://github.com/user-attachments/assets/6b077b9e-6ffa-49aa-a47e-fa9ba5e35257
 
 ```text
 Make a 45-second keynote-style reveal of <product or release>, 16:9, then 1:1.
@@ -310,6 +320,8 @@ Deliver the wide and square films, a poster on the reveal and a GIF.
 
 **Choose it when** you want the whole product in one breath, playing on repeat: a social post, a homepage hero loop. One card changes shape through every state and ends where it began.
 
+https://github.com/user-attachments/assets/2e3b8afa-f633-4ab9-a811-63f2cd0adaec
+
 ```text
 Make a 20-second morph loop for <product>, 1:1 first, then 9:16 and 16:9.
 
@@ -329,6 +341,8 @@ Deliver all three formats, a loop preview so I can watch the seam twice, and a G
 
 **Choose it when** there's a beginning, a turn and an end to tell: a brand film, an about page, how a problem came to be and what changed. A new image every few seconds, chapters that turn on the beat.
 
+https://github.com/user-attachments/assets/02e0c2a1-6ffd-438c-aa37-8868b60d31e5
+
 ```text
 Make a 90-second story video about <the story: how the problem began, what changed, where it is now>, <16:9 | 9:16>.
 
@@ -347,6 +361,8 @@ Deliver the video, captions if it's voiced, chapters if it runs long enough, a p
 ### Teaser
 
 **Choose it when** you have one thing to say and a second to say it: a post that must stop the scroll, a changelog headline, the first reply under a launch. The payoff first, then the one action that got there.
+
+https://github.com/user-attachments/assets/e0a14b8a-526d-47cd-9a7c-8aa46dba1669
 
 ```text
 Make a 15-second teaser for <feature or release>, in 9:16 and 16:9 from one timeline.
@@ -368,6 +384,8 @@ Deliver both formats, a poster at <the moment to show, or the payoff> and a GIF.
 
 **Choose it when** the numbers are the news: a results announcement, a quarterly recap, a customer-impact reel. A headline makes the claim; the charts prove it.
 
+https://github.com/user-attachments/assets/07944d49-fdea-4b8e-bd4f-104d8330bb3d
+
 ```text
 Make a 45-second data story, 16:9 first, then 1:1.
 
@@ -387,6 +405,8 @@ Deliver the wide and square films, a poster at <the moment to show, or the payof
 
 **Choose it when** someone needs to do a task, not hear about it: a help article, a feature how-to, a support reply. The finished result first, then each step on the real screen.
 
+https://github.com/user-attachments/assets/30fc3446-98e4-4a8b-821d-6da29af6537b
+
 ```text
 Make a 60-second tutorial: "How to <task> in <product>", 16:9.
 
@@ -404,6 +424,8 @@ Deliver the video, captions, a poster at <the moment to show, or the payoff> and
 ### App preview
 
 **Choose it when** the video sells an app on a phone: an App Store or Google Play preview, a mobile launch. Real phone screens and real taps.
+
+https://github.com/user-attachments/assets/a3894136-78ca-45b8-9e2f-0ba57ec19caa
 
 ```text
 Make a 25-second app preview for <app>, 1080×1920 plus the App Store's 886×1920, then 16:9 with the phone beside the headline.
@@ -424,6 +446,8 @@ Deliver both vertical sizes, the wide version, a poster at <the moment to show, 
 ### Sizzle reel
 
 **Choose it when** you want momentum and a room's attention: a launch-week or year-in-review recap, an investor or partner pitch opener, an event opener. The strongest moments, faster and faster, the biggest number on the drop.
+
+https://github.com/user-attachments/assets/23265243-b8d5-43b6-a137-fc78a2aa5cf2
 
 ```text
 Make a 60-second sizzle reel of <this year's releases | launch week | the product>, 16:9 first, then 9:16.
