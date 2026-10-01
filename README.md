@@ -551,16 +551,11 @@ python3 $E/audit.py .                                         # the whole worksp
 
 ## What it costs
 
-Measured on 1 October 2026 with the same request, a 16-second vertical video (moving type, music and effects, no voice, no product screens), made unattended from an empty folder: brief, render, every check, two rounds of scored critique, export and replay.
+A short video (about 15 seconds) takes roughly **25 minutes and about $5** with Claude Code, or **about 10 minutes** with Codex. On a Claude Pro or Max plan, or a ChatGPT plan, that comes out of your normal usage rather than a separate bill.
 
-- **Claude Code** (Opus 5.5, medium effort): 24 min 48 s, $5.30, including the separate critic agent's two rounds. The figure is Claude Code's own cost record, at API prices.
-- **Codex** (gpt-6-astra, medium effort): 8 min 34 s, 1.96 million input tokens (1.83 million of them cached) and 13,002 output tokens. Signed in with ChatGPT, there is no separate bill.
-- **Setup:** under 20 seconds with the downloads already on the machine. The first time, it downloads the engine's packages and a browser of about 150 MB, once per machine.
-- **Rendering on its own:** about 20 seconds for 8 seconds of video at 60 fps, on an Apple M5 Pro.
+Setup is free and takes a few minutes the first time. The sound library is free. An AI voice, if you choose one, is billed by its provider.
 
-On a Claude Pro or Max plan, or a ChatGPT plan for Codex, this comes out of your normal usage rather than a separate bill; signed in with an API key, you pay per token. A long video can run into a plan's usage limit; the director skill picks up where it stopped.
-
-A longer video costs more, and we haven't measured one yet: capturing product screens, a voice and extra critique rounds each add to it. An AI voice is billed by its provider (see [Settings and keys](#settings-and-keys)). The sound library is free.
+*These are approximate, from our own test runs. Your actual cost may vary with the AI model you use, your pricing plan, the length of the video, product screens, voice, and how many rounds of changes it takes.*
 
 ## Limits worth knowing
 
@@ -578,7 +573,7 @@ A longer video costs more, and we haven't measured one yet: capturing product sc
 No pixels are generated. Your agent writes the video as code, and the engine draws each frame from it. The same code produces the same video, down to invisible edge differences on text the camera zooms into.
 
 **What does it cost?**
-On a Claude Code or Codex plan it comes out of your usage; one short video measured $5.30 at API prices on Claude Code. See [What it costs](#what-it-costs). An AI voice is billed by its provider. The sound library is free to use under the licence listed for each file.
+About $5 for a short video with Claude Code, usually from your plan's normal usage. See [What it costs](#what-it-costs). An AI voice is billed by its provider. The sound library is free to use under the licence listed for each file.
 
 **How long does a video take?**
 The render takes minutes. Most of the time goes into the questions and your two approvals, which is where the video gets good.
