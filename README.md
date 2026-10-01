@@ -57,7 +57,7 @@ Need a style that isn't here? Adding one is a single file, described in [Extendi
 
 ## Quick start
 
-You need Claude Code or Codex signed in, Python 3.11 or later, and ffmpeg (`brew install python ffmpeg` on a Mac, `sudo apt install python3 python3-venv ffmpeg` on Debian or Ubuntu).
+You need Claude Code or Codex signed in, and ffmpeg (`brew install ffmpeg` on a Mac, `sudo apt install ffmpeg` on Debian or Ubuntu). We recommend [uv](https://docs.astral.sh/uv/), which installs the right Python for you; without it you need Python 3.12 or later.
 
 **1. Add the plugin** (Claude Code shown; Codex below):
 
@@ -72,12 +72,12 @@ Or run it yourself, from that folder:
 
 ```bash
 mkdir -p ~/videos && cd ~/videos
-bash "$(ls -d ~/.claude/plugins/cache/motiontale/motiontale/*/ | tail -1)install.sh"
+bash "$(ls -d ~/.claude/plugins/cache/motiontale/motiontale/*/ | tail -1)script/setup"
 ```
 
-(If you cloned the repository instead, that's `bash <path to motiontale>/install.sh`.)
+(If you cloned the repository instead, that's `bash <path to motiontale>/script/setup`.)
 
-The script checks for Python and ffmpeg, creates a Python environment in `.venv`, installs the engine with pinned versions and the Chromium it renders with, downloads and measures the sound library into `kit/`, copies `.env.example` to `.env` (readable only by you), and finishes with `doctor`, which shows what's connected. It takes a few minutes the first time, mostly downloads. Running it again only fills in what's missing; it never overwrites your `.env` or sound library.
+`script/setup` follows GitHub's [Scripts to Rule Them All](https://github.com/github/scripts-to-rule-them-all) convention. It calls `script/bootstrap`, which installs the engine's exact locked versions into `.venv` (with uv from `uv.lock`, or with pip from the same pinned list) and the Chromium the renderer draws with. Then it downloads and measures the sound library into `kit/`, copies `.env.example` to `.env` (readable only by you), and finishes with `doctor`, which shows what's connected. The first run takes a few minutes, mostly downloads. Running it again updates dependencies and fills in what's missing; it never overwrites your `.env` or sound library.
 
 **3. Ask for a video.** Open Claude Code or Codex in the workspace and describe what you want. The prompts in [Ask for a video](#ask-for-a-video) show how to get the most from the first request.
 
@@ -558,6 +558,8 @@ python3 tests/test_plugin.py                 # the plugin's contract, a few seco
 | `engine/` | `film.py`, `capture.py`, `voice.py`, `kit.py`, `lint.py`, `audit.py`, `motion.js`, `render.py`, `audiokit.py`, `template/` |
 | `agents/`, `.codex/agents/` | The scene builder and the critic, for Claude Code and Codex |
 | `AGENTS.md` | The rules every agent follows |
+| `script/` | `bootstrap` (installs the locked engine and its browser) and `setup` (prepares a workspace), in GitHub's Scripts to Rule Them All convention |
+| `pyproject.toml`, `uv.lock` | The engine's dependencies, every version locked; `engine/requirements.txt` is the same list for pip |
 | `docs/` | The plan, the issue log and the latest review |
 
 This repository is private. A licence will be added before it's published.

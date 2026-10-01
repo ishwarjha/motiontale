@@ -1,0 +1,16 @@
+[project]
+name = "motiontale-engine"
+version = "0.1.0"
+description = "The engine behind the Motiontale plugin: render, mix, capture, voice and check motion videos."
+requires-python = ">=3.12"              # the pinned numpy needs 3.12
+# Pinned to the versions the tests pass on; raise them together, run `uv lock`, and re-run both test files.
+dependencies = [
+    "numpy==2.5.3",
+    "pillow==12.3.0",
+    "playwright==1.63.0",
+    "faster-whisper==1.2.1",   # voice.py: transcript check of each take
+    "num2words==0.5.14",       # voice.py: "79%" matches "seventy-nine percent"
+]
+
+[tool.uv]
+package = false                # scripts, not an installable package

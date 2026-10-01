@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+# script/bootstrap: install or update the engine's dependencies in the current folder (your workspace).
+# Uses uv and the plugin's uv.lock when uv is installed (it also fetches a suitable Python if needed);
+# otherwise falls back to Python 3.12+ and pip with engine/requirements.txt, exported from the same lock.
+# Part of the "Scripts to Rule Them All" pattern: script/setup calls this, then prepares the workspace.
+set -euo pipefail
+
+PLUGIN="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+say()  { printf '\n==> %s\n' "$*"; }
+fail() { printf '\nStopped: %s\n' "$*" >&2; exit 1; }
+
+command -v ffmpeg >/dev/null 2>&1 || fail "ffmpeg is needed.
+  macOS:          brew install ffmpeg
+  Debian/Ubuntu:  sudo apt install ffmpeg"
+
+if command -v uv >/dev/null 2>&1; then
+  say "Installing the engine from uv.lock into .venv"
+  UV_PROJECT_ENVIRONMENT="$PWD/.venv" uv sync --project "$PLUGIN" --frozen --quiet
+else
+  PY3=""
+  for c in python3.14 python3.13 python3.12 python3; do
+    if command -v "$c" >/dev/null 2>&1 && "$c" -c 'import sys; sys.exit(sys.version_info < (3, 12))' 2>/dev/null; then PY3="$c"; break; fi
+  done
+  [ -n "$PY3" ] || fail "Python 3.12 or later is needed (or install uv, which fetches it: https://docs.astral.sh/uv/).
+  macOS:          brew install python
+  Debian/Ubuntu:  sudo apt install python3 python3-venv"
+  [ -x .venv/bin/python ] || { say "Creating .venv with $("$PY3" --version)"; "$PY3" -m venv .venv; }
+  say "Installing the engine from engine/requirements.txt into .venv"
+  .venv/bin/python -m pip install --quiet --upgrade pip
+  .venv/bin/python -m pip install --quiet -r "$PLUGIN/engine/requirements.txt"
+fi
+
+say "Installing the Chromium the renderer uses (about 150 MB, once per machine)"
+if [ "$(uname -s)" = "Linux" ]; then
+  .venv/bin/python -m playwright install --with-deps chromium || .venv/bin/python -m playwright install chromium
+else
+  .venv/bin/python -m playwright install chromium
+fi

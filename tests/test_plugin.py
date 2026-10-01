@@ -115,11 +115,15 @@ docs = [*ROOT.glob("skills/**/*.md"), *ROOT.glob("agents/*.md"), *ROOT.glob(".co
 stale = [f"{f.relative_to(ROOT)}: {m.group()}" for f in docs for m in numbered.finditer(f.read_text())]
 assert not stale, "numbered references: " + "; ".join(stale)
 
-# install.sh: present, executable, valid bash, and it runs the engine's own setup steps
-inst = ROOT / "install.sh"
-assert inst.stat().st_mode & 0o111, "install.sh must be executable"
-assert subprocess.run(["bash", "-n", str(inst)]).returncode == 0, "install.sh has a syntax error"
-assert all(x in inst.read_text() for x in ("requirements.txt", "playwright install", "kit.py", ".env.example", "doctor"))
+# script/bootstrap and script/setup: present, executable, valid bash; the pip fallback pins exactly what uv.lock pins
+for sc in ("bootstrap", "setup"):
+    f = ROOT / "script" / sc
+    assert f.stat().st_mode & 0o111 and subprocess.run(["bash", "-n", str(f)]).returncode == 0, f"script/{sc} must be executable valid bash"
+assert "script/bootstrap" in (ROOT / "script" / "setup").read_text() and "uv sync" in (ROOT / "script" / "bootstrap").read_text()
+pins = lambda t: sorted(l.split(";")[0].strip() for l in t.splitlines() if "==" in l and not l.startswith("#"))
+lock = {m[1]: m[2] for m in re.finditer(r'\[\[package\]\]\nname = "([^"]+)"\nversion = "([^"]+)"', (ROOT / "uv.lock").read_text())}
+req = dict(x.split("==") for x in pins((ROOT / "engine" / "requirements.txt").read_text()))
+assert all(lock.get(k) == v for k, v in req.items()) and len(req) >= 5, "engine/requirements.txt has drifted from uv.lock: re-export it"
 
 # every setting the engine reads is documented in .env.example
 env_doc = (ROOT / ".env.example").read_text()

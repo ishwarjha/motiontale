@@ -5,7 +5,7 @@ description: Use when asked for a launch video, product video, explainer, produc
 
 # Motion video
 
-ENGINE is `../../engine/` from this file (film.py, voice.py, kit.py, motion.js, render.py). WORKSPACE is the folder with `kit/AUDIO.md` and a Python venv with engine/requirements.txt installed; films live at `WORKSPACE/<slug>/`. `PY` is that venv's python. Every command below is run from WORKSPACE. No WORKSPACE yet (no `kit/AUDIO.md` here or above)? Offer to set one up in the folder the user names, and once they agree run `bash ../../install.sh` (the plugin's `install.sh`, two folders above this file) from that folder: it creates the venv, installs the engine and its browser, downloads the sound library, copies `.env.example` to `.env`, and ends with `doctor`.
+ENGINE is `../../engine/` from this file (film.py, voice.py, kit.py, motion.js, render.py). WORKSPACE is the folder with `kit/AUDIO.md` and a Python venv with engine/requirements.txt installed; films live at `WORKSPACE/<slug>/`. `PY` is that venv's python. Every command below is run from WORKSPACE. No WORKSPACE yet (no `kit/AUDIO.md` here or above)? Offer to set one up in the folder the user names, and once they agree run `bash ../../script/setup` (the plugin's `script/setup`, two folders above this file) from that folder: it installs the locked engine and its browser into `.venv`, downloads the sound library, copies `.env.example` to `.env`, and ends with `doctor`.
 
 ## Hard rules: break none, ask instead
 1. Real UI only. Every product pixel is a screenshot or crop of the real page. Never redraw UI. Need a state the pages don't have? Edit the real page and screenshot it.

@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+# script/setup: make the current folder a Motiontale workspace, the folder your videos will live in.
+#
+#   mkdir -p ~/videos && cd ~/videos
+#   bash <plugin>/script/setup
+#
+# Safe to run again: it updates dependencies and fills in what's missing, never touching your .env or sound library.
+set -euo pipefail
+
+PLUGIN="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+say() { printf '\n==> %s\n' "$*"; }
+
+say "Setting up a Motiontale workspace in $PWD"
+"$PLUGIN/script/bootstrap"
+
+if [ -f kit/AUDIO.md ]; then
+  say "Sound library already in kit/"
+else
+  say "Downloading and measuring the sound library into kit/"
+  .venv/bin/python "$PLUGIN/engine/kit.py"
+fi
+
+if [ -f .env ]; then
+  say ".env already here: left as it is"
+else
+  cp "$PLUGIN/.env.example" .env && chmod 600 .env
+  say "Copied .env.example to .env. Add keys only if you want an AI voice (README: Settings and keys)"
+fi
+
+say "Checking the setup"
+.venv/bin/python "$PLUGIN/engine/film.py" doctor
+
+printf '\nReady. Open Claude Code or Codex in %s and ask for a video.\n' "$PWD"
