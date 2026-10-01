@@ -115,6 +115,12 @@ docs = [*ROOT.glob("skills/**/*.md"), *ROOT.glob("agents/*.md"), *ROOT.glob(".co
 stale = [f"{f.relative_to(ROOT)}: {m.group()}" for f in docs for m in numbered.finditer(f.read_text())]
 assert not stale, "numbered references: " + "; ".join(stale)
 
+# install.sh: present, executable, valid bash, and it runs the engine's own setup steps
+inst = ROOT / "install.sh"
+assert inst.stat().st_mode & 0o111, "install.sh must be executable"
+assert subprocess.run(["bash", "-n", str(inst)]).returncode == 0, "install.sh has a syntax error"
+assert all(x in inst.read_text() for x in ("requirements.txt", "playwright install", "kit.py", ".env.example", "doctor"))
+
 # every setting the engine reads is documented in .env.example
 env_doc = (ROOT / ".env.example").read_text()
 engine_py = [f for f in (ROOT / "engine").glob("*.py") if not f.name.startswith("test_")]    # tests set PATH etc. for themselves

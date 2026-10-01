@@ -57,21 +57,31 @@ Need a style that isn't here? Adding one is a single file, described in [Extendi
 
 ## Quick start
 
-You need Claude Code or Codex signed in, Python 3.11 or later, and ffmpeg.
+You need Claude Code or Codex signed in, Python 3.11 or later, and ffmpeg (`brew install python ffmpeg` on a Mac, `sudo apt install python3 python3-venv ffmpeg` on Debian or Ubuntu).
+
+**1. Add the plugin** (Claude Code shown; Codex below):
 
 ```bash
-# 1. Add the plugin (Claude Code shown; Codex below)
 claude plugin marketplace add ishwarjha/motiontale
 claude plugin install motiontale@motiontale
-
-# 2. Set up a workspace, the folder your videos will live in
-python3 -m venv .venv && .venv/bin/pip install -r <plugin>/engine/requirements.txt
-.venv/bin/python -m playwright install chromium
-.venv/bin/python <plugin>/engine/kit.py            # run in the workspace: downloads and measures the sound library into ./kit
-.venv/bin/python <plugin>/engine/film.py doctor     # shows your sign-in, keys and sound library
 ```
 
-The sound library lives in `kit/` in the workspace, or wherever `MOTION_KIT` points. Then ask your agent for a video. The prompts in [Ask for a video](#ask-for-a-video) show how to get the most from the first request.
+**2. Set up a workspace,** the folder your videos will live in. The easiest way: open Claude Code in that folder and say *"Set up Motiontale here."* Your agent runs the plugin's setup script for you.
+
+Or run it yourself, from that folder:
+
+```bash
+mkdir -p ~/videos && cd ~/videos
+bash "$(ls -d ~/.claude/plugins/cache/motiontale/motiontale/*/ | tail -1)install.sh"
+```
+
+(If you cloned the repository instead, that's `bash <path to motiontale>/install.sh`.)
+
+The script checks for Python and ffmpeg, creates a Python environment in `.venv`, installs the engine with pinned versions and the Chromium it renders with, downloads and measures the sound library into `kit/`, copies `.env.example` to `.env` (readable only by you), and finishes with `doctor`, which shows what's connected. It takes a few minutes the first time, mostly downloads. Running it again only fills in what's missing; it never overwrites your `.env` or sound library.
+
+**3. Ask for a video.** Open Claude Code or Codex in the workspace and describe what you want. The prompts in [Ask for a video](#ask-for-a-video) show how to get the most from the first request.
+
+Plugins can't run their own setup when you install them, and this one needs a Python environment, a browser and a sound library in the folder you choose, so setup is a separate, one-time step.
 
 **Codex:** `codex plugin marketplace add <path to this folder or its git URL>`, then `codex plugin add motiontale@motiontale`, then copy `.codex/agents/*.toml` into `~/.codex/agents/` for the scene-builder and critic agents, and `AGENTS.md` into your workspace so Codex reads the rules. The session hook that points video requests at the skills is Claude Code only.
 
