@@ -98,13 +98,13 @@ Every captured image is recorded in `provenance.json` with its address, the elem
 
 - One `facts.md` per film: the claim as shown, its source, its date, and whether it's a real fact or labelled demo data.
 - Capture suggests every number it sees on your screens, ready to confirm.
-- Checked twice: once in the video's code before rendering, and again as it plays, where the check reads the text that's actually visible every quarter beat, including values that count up. Numbers inside captured screenshots aren't read by the check; they're your product's own pixels.
+- Checked twice: once in the video's code before rendering, and again as it plays. Every quarter beat the check reads the text visible on screen, and input values, and fails on any number that stays there for 0.2 seconds without a `facts.md` row, or that comes from demo data with no Example label in its own card. Numbers inside captured screenshots aren't read; they're your product's own pixels.
 
 ### Music, effects and voice
 
 - **The sound library** is a fixed set of real recordings from a free-to-use library: one music track (121 BPM; `kit.py` keeps a fallback track in case the first won't download) and eight effects (click, typing, whoosh, pop, ding, success, coins, impact), each measured for its tempo, beats, drop and peak, with its licence listed in `kit/AUDIO.md`. Adding a sound means adding it to `kit.py`'s list and rebuilding; a second music track, or one outside 110–125 BPM, needs a code change.
 - **Timing:** effects land on their events by their measured peak; a click lands on the press, not the release, when it's marked to (the template does, and lint warns when it isn't); the music's drop lands on your payoff; a looping video's music runs straight through the seam.
-- **Voice:** record it yourself, one take per scene, or choose an AI voice from Google, Microsoft or ElevenLabs, which is labelled as AI in the film's rules. Each take is transcribed and matched to the script (numbers word for word), cut into sentences and placed on the beat grid. A pronunciation list handles names and acronyms.
+- **Voice:** record it yourself, one take per scene, or choose an AI voice from Google, Microsoft or ElevenLabs, which is labelled as AI in the film's rules. Each take is transcribed and matched to the script, and fails if a number written in a sentence isn't heard in that sentence (or right at its edge) as the same complete spoken number. Then it's cut into sentences and placed on the beat grid. A pronunciation list handles names and acronyms.
 - **Mix:** the music sits under the voice and comes up for the payoff; a short limiter takes at most 12 dB off the loudest peaks so plain gain can bring the mix to -14 LUFS, and the loudness check fails a file more than 1 LU off or with true peak above -1 dBTP. Music, effects and voice are also saved as separate stems.
 
 ### Motion and look
@@ -143,7 +143,7 @@ Videos over about 90 seconds, or big enough to need several agents, get a direct
 ### Reviews and audits
 
 - **Review** a film's code against the rules before rendering, with every finding stated as a fix.
-- **Audit** a whole workspace: rule breaks per video, videos out of date with their code, videos not checked since their last render, missing critiques and recipes, sounds without a licence, stale engine copies, unused screenshots and leftover build files, ranked by what blocks shipping.
+- **Audit** a whole workspace: rule breaks per video, videos older than their code, videos not checked since their last render, missing critique logs and recipes, kit sounds with no licence row, video copies of the engine that differ from it, screenshots nothing uses, and build folders over 50 MB, ranked by what blocks shipping.
 - **Lint** runs before every render and blocks it on a rule break: an unsourced number it can read in the code (the facts check catches the rest on screen), a fade or glow, a timer, a missing capture record, or a music tempo that doesn't match the video's.
 
 ### Extending it

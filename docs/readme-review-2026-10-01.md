@@ -30,3 +30,13 @@ Each substantial README claim was sent to TypeSafe Jev (jev-1.13.0) with the cod
 | C24 | There are twelve styles: app-preview, data-story, editorial, explainer, keynote, morph-loop, sizzle-reel, story, teaser, tour, tutorial, vertical. | overstated (0.84) | supported (0.98) | Agreed: supported after fuller evidence |
 
 Agreed supported: 16 of 24. Conceded and changed in the README: C1, C3, C5, C9, C22. Held with evidence: C2, C11, C20 (and the rest of C1 and C3).
+
+## Round 3 (narrowed wording for the three held claims)
+
+| ID | Claim | Ruling | Outcome |
+|---|---|---|---|
+| C2 | The facts check reads visible text and input values every quarter beat; fails on a number held 0.2 s without a row, or demo data without an Example label in its card | overstated 0.47 / supported 0.47 | Agreed as worded (a tie) |
+| C11 | A take fails if a number in a sentence isn't heard there as the same complete spoken number | overstated 0.68 | Conceded: the sentence window includes one word either side; README says "in that sentence (or right at its edge)" |
+| C20 | The audit's full list, ending with build folders over 50 MB | overstated 0.53 / supported 0.43 | Agreed as worded (near even, every item is an audit tag) |
+
+Final: every claim is either supported, corrected in the README, or a tie on the narrowed wording.
